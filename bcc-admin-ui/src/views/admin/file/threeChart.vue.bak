@@ -1,0 +1,124 @@
+<template>
+	<div style="height:100%;width:100%;" id="content">
+	</div>
+</template>
+
+<script>
+	import { mapGetters } from 'vuex';
+	import {
+	  getToken
+	} from 'utils/auth';
+	
+
+  export default {
+    props: {
+      className: {
+        type: String,
+        default: 'chart'
+      },
+      width: {
+        type: String,
+        default: '100%'
+      },
+      height: {
+        type: String,
+        default: '450px'
+      },
+      autoResize: {
+        type: Boolean,
+        default: true
+      }
+    },
+    data() {
+    	//const objLoader = new OBJLoader();
+      return {
+        chart: null,
+        datas:[],
+      };
+    },
+    mounted() {
+
+      // 监听侧边栏的变化
+      const sidebarElm = document.getElementsByClassName('sidebar-container')[0]
+      sidebarElm.addEventListener('transitionend', this.__resizeHanlder)
+    },
+    beforeDestroy() {
+      if (!this.chart) {
+        return
+      }
+      if (this.autoResize) {
+        window.removeEventListener('resize', this.__resizeHanlder)
+      }
+
+      const sidebarElm = document.getElementsByClassName('sidebar-container')[0]
+      sidebarElm.removeEventListener('transitionend', this.__resizeHanlder)
+
+      this.chart.dispose()
+      this.chart = null
+    },
+    methods: {
+      initChart(fileInfoId) {
+      	let location=window.location.host;
+		    location="/api/admin/filedown/threeD/"+fileInfoId;
+		    console.log(location);
+		    drawThDimage(location);
+      }
+    }
+}
+var scene=null;
+var camera=null;
+var renderer=null;
+function drawThDimage(location){
+	scene=null;
+	camera=null;
+	renderer=null;
+	scene=new THREE.Scene();
+  //第二步创建一个网格模型对象  网格对象方法function Mesh( geometry, material )
+  //需要两个参数geometry几何模型  material材质
+  /**
+  var geometry=new THREE.BoxGeometry(100,100,100);//立方体模型
+  var material=new THREE.MeshLambertMaterial({color:0xff0000});
+  var mesh=new THREE.Mesh(geometry,material);
+  scene.add(mesh);//添加网格到场景中
+  */
+  //加载obj模型代码
+  var loader=new THREE.OBJLoader();
+  loader.load(location,function(deskScene){
+      scene.add(deskScene);
+  });
+  //添加灯光  点光源
+  var light=new THREE.PointLight(0xffffff);
+  light.position.set(300,400,200);//光源的位置
+  scene.add(light);//将光源加入到场景中
+
+  scene.add(new THREE.AmbientLight(0x333333));//添加环境光  让背景 亮一点
+ 
+  //添加相机  透视相机
+  camera=new THREE.PerspectiveCamera(10,800/600,1,1000);
+  camera.position.set(200,200,10);//相机的位置
+  camera.lookAt(scene.position);//相机朝向的位置
+ 
+  //添加渲染器
+  renderer=new THREE.WebGLRenderer();
+  renderer.setSize(1050,500);
+  //将渲染器加到文档中
+  document.getElementById("content").innerHTML = "";
+  document.getElementById("content").appendChild(renderer.domElement);
+  render();//刚加载页面的时候就渲染一次  要不刚进入页面背景会是黑色的
+  //将相机加入到相机控制
+  var controls=new THREE.OrbitControls(camera);//不传参数默认是整个文档
+  //添加事件监听
+  controls.addEventListener("change",render);  //当事件改变 触发render方法 渲染界面
+
+  //由于加载外部模型的方法load 是异步的所以第一次加载页面时候  桌子没有出来
+  //解决办法  加入动画处理
+  animate();
+}
+function animate() {
+    requestAnimationFrame(animate);//每一帧都执行这个动画
+    render();
+}
+function render() {
+    renderer.render(scene,camera);
+}
+</script>

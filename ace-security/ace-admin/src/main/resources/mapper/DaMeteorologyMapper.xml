@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bcc.security.admin.mapper.DaMeteorologyMapper">
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.dataparse.dataobj.DaMeteorology">
+  	<id column="METEOROLOGYID" jdbcType="VARCHAR" property="meteorologyid"/>
+    <result column="TASKDATAID" jdbcType="VARCHAR" property="taskdataid"/>
+	<result column="WEATH" jdbcType="VARCHAR" property="weath"/>
+	<result column="AIRTEMP" jdbcType="VARCHAR" property="airtemp"/>
+	<result column="RELAHUM" jdbcType="VARCHAR" property="relahum"/>
+	<result column="AIRPRESS" jdbcType="VARCHAR" property="airpress"/>
+	<result column="WINVEL" jdbcType="VARCHAR" property="winvel"/>
+	<result column="WINDIR" jdbcType="VARCHAR" property="windir"/>
+	<result column="HORVIS" jdbcType="VARCHAR" property="horvis"/>
+	<result column="SOLDIRIRRA" jdbcType="VARCHAR" property="soldirirra"/>
+	<result column="SKYSOLSCATIRRA" jdbcType="VARCHAR" property="skysolscatirra"/>
+	<result column="SKYINFIRRA" jdbcType="VARCHAR" property="skyinfirra"/>
+	<result column="SOLAZ" jdbcType="VARCHAR" property="solaz"/>
+	<result column="SOLEL" jdbcType="VARCHAR" property="solel"/>
+	<result column="AMNTSKYCLD" jdbcType="VARCHAR" property="amntskycld"/>
+	<result column="WEANUM" jdbcType="VARCHAR" property="weanum"/>
+	<result column="NOTE" jdbcType="VARCHAR" property="note"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TASKDATAID,METEOROLOGYID,WEATH,AIRTEMP,RELAHUM,AIRPRESS,WINVEL,WINDIR,HORVIS,
+    SOLDIRIRRA,SKYSOLSCATIRRA,SKYINFIRRA,SOLAZ,SOLEL,AMNTSKYCLD,WEANUM,NOTE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_METEOROLOGY
+    where METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTaskId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_METEOROLOGY
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DA_METEOROLOGY
+    where METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bcc.security.admin.dataparse.dataobj.DaMeteorology">
+    insert into DA_METEOROLOGY (
+    	TASKDATAID,METEOROLOGYID,WEATH,AIRTEMP,RELAHUM,AIRPRESS,WINVEL,WINDIR,HORVIS,SOLDIRIRRA,SKYSOLSCATIRRA,
+    	SKYINFIRRA,SOLAZ,SOLEL,AMNTSKYCLD,WEANUM,NOTE
+    	)
+    values (
+    	#{taskdataid,jdbcType=VARCHAR},#{meteorologyid,jdbcType=VARCHAR},#{weath,jdbcType=VARCHAR},
+    	#{airtemp,jdbcType=VARCHAR},#{relahum,jdbcType=VARCHAR},#{airpress,jdbcType=VARCHAR},#{winvel,jdbcType=VARCHAR},
+    	#{windir,jdbcType=VARCHAR},#{horvis,jdbcType=VARCHAR},#{soldirirra,jdbcType=VARCHAR},#{skysolscatirra,jdbcType=VARCHAR},
+    	#{skyinfirra,jdbcType=VARCHAR},#{solaz,jdbcType=VARCHAR},#{solel,jdbcType=VARCHAR},#{amntskycld,jdbcType=VARCHAR},
+    	#{weanum,jdbcType=VARCHAR},#{note,jdbcType=VARCHAR}
+	)
+  </insert>
+  <insert id="insertSelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaMeteorology">
+    insert into DA_METEOROLOGY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		TASKDATAID
+		</if>
+		<if test="meteorologyid != null">
+		METEOROLOGYID
+		</if>
+		<if test="weath != null">
+		WEATH
+		</if>
+		<if test="airtemp != null">
+		AIRTEMP
+		</if>
+		<if test="relahum != null">
+		RELAHUM
+		</if>
+		<if test="airpress != null">
+		AIRPRESS
+		</if>
+		<if test="winvel != null">
+		WINVEL
+		</if>
+		<if test="windir != null">
+		WINDIR
+		</if>
+		<if test="horvis != null">
+		HORVIS
+		</if>
+		<if test="soldirirra != null">
+		SOLDIRIRRA
+		</if>
+		<if test="skysolscatirra != null">
+		SKYSOLSCATIRRA
+		</if>
+		<if test="skyinfirra != null">
+		SKYINFIRRA
+		</if>
+		<if test="solaz != null">
+		SOLAZ
+		</if>
+		<if test="solel != null">
+		SOLEL
+		</if>
+		<if test="amntskycld != null">
+		AMNTSKYCLD
+		</if>
+		<if test="weanum != null">
+		WEANUM
+		</if>
+		<if test="note != null">
+		NOTE
+		</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		#{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="meteorologyid != null">
+		#{meteorologyid,jdbcType=VARCHAR},
+		</if>
+		<if test="weath != null">
+		#{weath,jdbcType=VARCHAR},
+		</if>
+		<if test="airtemp != null">
+		#{airtemp,jdbcType=VARCHAR},
+		</if>
+		<if test="relahum != null">
+		#{relahum,jdbcType=VARCHAR},
+		</if>
+		<if test="airpress != null">
+		#{airpress,jdbcType=VARCHAR},
+		</if>
+		<if test="winvel != null">
+		#{winvel,jdbcType=VARCHAR},
+		</if>
+		<if test="windir != null">
+		#{windir,jdbcType=VARCHAR},
+		</if>
+		<if test="horvis != null">
+		#{horvis,jdbcType=VARCHAR},
+		</if>
+		<if test="soldirirra != null">
+		#{soldirirra,jdbcType=VARCHAR},
+		</if>
+		<if test="skysolscatirra != null">
+		#{skysolscatirra,jdbcType=VARCHAR},
+		</if>
+		<if test="skyinfirra != null">
+		#{skyinfirra,jdbcType=VARCHAR},
+		</if>
+		<if test="solaz != null">
+		#{solaz,jdbcType=VARCHAR},
+		</if>
+		<if test="solel != null">
+		#{solel,jdbcType=VARCHAR},
+		</if>
+		<if test="amntskycld != null">
+		#{amntskycld,jdbcType=VARCHAR},
+		</if>
+		<if test="weanum != null">
+		#{weanum,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		#{note,jdbcType=VARCHAR}
+		</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaMeteorology">
+    update DA_METEOROLOGY
+    <set>
+      <if test="taskdataid != null">
+		TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="meteorologyid != null">
+		METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR},
+		</if>
+		<if test="weath != null">
+		WEATH = #{weath,jdbcType=VARCHAR},
+		</if>
+		<if test="airtemp != null">
+		AIRTEMP = #{airtemp,jdbcType=VARCHAR},
+		</if>
+		<if test="relahum != null">
+		RELAHUM = #{relahum,jdbcType=VARCHAR},
+		</if>
+		<if test="airpress != null">
+		AIRPRESS = #{airpress,jdbcType=VARCHAR},
+		</if>
+		<if test="winvel != null">
+		WINVEL = #{winvel,jdbcType=VARCHAR},
+		</if>
+		<if test="windir != null">
+		WINDIR = #{windir,jdbcType=VARCHAR},
+		</if>
+		<if test="horvis != null">
+		HORVIS = #{horvis,jdbcType=VARCHAR},
+		</if>
+		<if test="soldirirra != null">
+		SOLDIRIRRA = #{soldirirra,jdbcType=VARCHAR},
+		</if>
+		<if test="skysolscatirra != null">
+		SKYSOLSCATIRRA = #{skysolscatirra,jdbcType=VARCHAR},
+		</if>
+		<if test="skyinfirra != null">
+		SKYINFIRRA = #{skyinfirra,jdbcType=VARCHAR},
+		</if>
+		<if test="solaz != null">
+		SOLAZ = #{solaz,jdbcType=VARCHAR},
+		</if>
+		<if test="solel != null">
+		SOLEL = #{solel,jdbcType=VARCHAR},
+		</if>
+		<if test="amntskycld != null">
+		AMNTSKYCLD = #{amntskycld,jdbcType=VARCHAR},
+		</if>
+		<if test="weanum != null">
+		WEANUM = #{weanum,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		NOTE = #{note,jdbcType=VARCHAR}
+		</if>
+    </set>
+    where METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bcc.security.admin.dataparse.dataobj.DaMeteorology">
+    update DA_METEOROLOGY
+    set 
+      METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR},
+      WEATH = #{weath,jdbcType=VARCHAR},
+      AIRTEMP = #{airtemp,jdbcType=VARCHAR},
+      RELAHUM = #{relahum,jdbcType=VARCHAR},
+      AIRPRESS = #{airpress,jdbcType=VARCHAR},
+      WINVEL = #{winvel,jdbcType=VARCHAR},
+      WINDIR = #{windir,jdbcType=VARCHAR},
+      HORVIS = #{horvis,jdbcType=VARCHAR},
+      SOLDIRIRRA = #{soldirirra,jdbcType=VARCHAR},
+      SKYSOLSCATIRRA = #{skysolscatirra,jdbcType=VARCHAR},
+      SKYINFIRRA = #{skyinfirra,jdbcType=VARCHAR},
+      SOLAZ = #{solaz,jdbcType=VARCHAR},
+      SOLEL = #{solel,jdbcType=VARCHAR},
+      AMNTSKYCLD = #{amntskycld,jdbcType=VARCHAR},
+      WEANUM = #{weanum,jdbcType=VARCHAR},
+      NOTE = #{note,jdbcType=VARCHAR}
+    where METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bcc.security.admin.mapper.DaSubTaskdescMapper">
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.dataparse.dataobj.DaSubTaskdesc">
+    <id column="SUBTASKDESCID" jdbcType="VARCHAR" property="subtaskdescid"/>
+    <result column="TASKDATAID" jdbcType="VARCHAR" property="taskdataid"/>
+	<result column="TGTNAME" jdbcType="VARCHAR" property="tgtname"/>
+	<result column="TGTDESCPT" jdbcType="VARCHAR" property="tgtdescpt"/>
+	<result column="BKGNDNAME" jdbcType="VARCHAR" property="bkgndname"/>
+	<result column="BKGNDDESCPT" jdbcType="VARCHAR" property="bkgnddescpt"/>
+	<result column="TESTNAME" jdbcType="VARCHAR" property="testname"/>
+	<result column="TESTLEADER" jdbcType="VARCHAR" property="testleader"/>
+	<result column="TESTUNIT" jdbcType="VARCHAR" property="testunit"/>
+	<result column="TASKCODE" jdbcType="VARCHAR" property="taskcode"/>
+	<result column="TASKORIG" jdbcType="VARCHAR" property="taskorig"/>
+	<result column="DATAORIG" jdbcType="VARCHAR" property="dataorig"/>
+	<result column="CHARACTDATATYPE" jdbcType="VARCHAR" property="charactdatatype"/>
+	<result column="BAND" jdbcType="VARCHAR" property="band"/>
+	<result column="MEASPLA" jdbcType="VARCHAR" property="measpla"/>
+	<result column="MEASDATE" jdbcType="VARCHAR" property="measdate"/>
+	<result column="SCALE" jdbcType="VARCHAR" property="scale"/>
+	<result column="CALIBFORM" jdbcType="VARCHAR" property="calibform"/>
+	<result column="REFSTDMET" jdbcType="VARCHAR" property="refstdmet"/>
+	<result column="REFSTDNAME" jdbcType="VARCHAR" property="refstdname"/>
+	<result column="REFSTDDIM" jdbcType="VARCHAR" property="refstddim"/>
+	<result column="UNCERTAINTY" jdbcType="VARCHAR" property="uncertainty"/>
+	<result column="SUITEXTDATA" jdbcType="VARCHAR" property="suitextdata"/>
+	<result column="DATAGRD" jdbcType="VARCHAR" property="datagrd"/>
+	<result column="USEREVAL" jdbcType="VARCHAR" property="usereval"/>
+	<result column="AIRMODE" jdbcType="VARCHAR" property="airmode"/>
+	<result column="TESTTARNAME" jdbcType="VARCHAR" property="testtarname"/>
+	<result column="AIRLINE" jdbcType="VARCHAR" property="airline"/>
+	<result column="TESTTARCOMM" jdbcType="VARCHAR" property="testtarcomm"/>
+	<result column="TESTBANDRANGE" jdbcType="VARCHAR" property="testbandrange"/>
+	<result column="GRORGH" jdbcType="VARCHAR" property="grorgh"/>
+	<result column="TGTPHO" jdbcType="VARCHAR" property="tgtpho"/>
+	<result column="LON" jdbcType="VARCHAR" property="lon"/>
+	<result column="SEAAREA" jdbcType="VARCHAR" property="seaarea"/>
+	<result column="SEACON" jdbcType="VARCHAR" property="seacon"/>
+	<result column="BLKLNG" jdbcType="VARCHAR" property="blklng"/>
+	<result column="TGTHIGH" jdbcType="VARCHAR" property="tgthigh"/>
+	<result column="SURFTGTNAME" jdbcType="VARCHAR" property="surftgtname"/>
+	<result column="MBHWYSCSSM" jdbcType="VARCHAR" property="mbhwyscssm"/>
+	<result column="SURTGTCLG" jdbcType="VARCHAR" property="surtgtclg"/>
+	<result column="TGTCLG" jdbcType="VARCHAR" property="tgtclg"/>
+	<result column="MBFDJGKSM" jdbcType="VARCHAR" property="mbfdjgksm"/>
+	<result column="MBGZTXSM" jdbcType="VARCHAR" property="mbgztxsm"/>
+	<result column="MBDCYSCSSM" jdbcType="VARCHAR" property="mbdcyscssm"/>
+	<result column="TGTWD" jdbcType="VARCHAR" property="tgtwd"/>
+	<result column="MBJGTDSM" jdbcType="VARCHAR" property="mbjgtdsm"/>
+	<result column="TGTLG" jdbcType="VARCHAR" property="tgtlg"/>
+	<result column="SURTGTCOMM" jdbcType="VARCHAR" property="surtgtcomm"/>
+	<result column="MOISCONTSOILWGT" jdbcType="VARCHAR" property="moiscontsoilwgt"/>
+	<result column="LAT" jdbcType="VARCHAR" property="lat"/>
+	<result column="VGTCV" jdbcType="VARCHAR" property="vgtcv"/>
+	<result column="VGTGPAVG" jdbcType="VARCHAR" property="vgtgpavg"/>
+	<result column="VGTWWLV" jdbcType="VARCHAR" property="vgtwwlv"/>
+	<result column="VGTCST" jdbcType="VARCHAR" property="vgtcst"/>
+	<result column="VGTHAVG" jdbcType="VARCHAR" property="vgthavg"/>
+	<result column="NOTE" jdbcType="VARCHAR" property="note"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TASKDATAID,SUBTASKDESCID,TGTNAME,TGTDESCPT,BKGNDNAME,BKGNDDESCPT,TESTNAME,TESTLEADER,TESTUNIT,TASKCODE,
+	TASKORIG,DATAORIG,CHARACTDATATYPE,BAND,MEASPLA,MEASDATE,SCALE,CALIBFORM,REFSTDMET,REFSTDNAME,REFSTDDIM,
+	UNCERTAINTY,SUITEXTDATA,DATAGRD,USEREVAL,AIRMODE,TESTTARNAME,AIRLINE,TESTTARCOMM,TESTBANDRANGE,GRORGH,
+	TGTPHO,LON,SEAAREA,SEACON,BLKLNG,TGTHIGH,SURFTGTNAME,MBHWYSCSSM,SURTGTCLG,TGTCLG,MBFDJGKSM,MBGZTXSM,
+	MBDCYSCSSM,TGTWD,MBJGTDSM,TGTLG,SURTGTCOMM,MOISCONTSOILWGT,LAT,VGTCV,VGTGPAVG,VGTWWLV,VGTCST,VGTHAVG,NOTE 
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_SUBTASKDESC
+    where SUBTASKDESCID = #{subtaskdescid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTaskId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_SUBTASKDESC
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DA_SUBTASKDESC
+    where SUBTASKDESCID = #{subtaskdescid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSubTaskdesc">
+    insert into DA_SUBTASKDESC (
+    	TASKDATAID,SUBTASKDESCID,TGTNAME,TGTDESCPT,BKGNDNAME,BKGNDDESCPT,TESTNAME,TESTLEADER,TESTUNIT,TASKCODE,
+		TASKORIG,DATAORIG,CHARACTDATATYPE,BAND,MEASPLA,MEASDATE,SCALE,CALIBFORM,REFSTDMET,REFSTDNAME,REFSTDDIM,
+		UNCERTAINTY,SUITEXTDATA,DATAGRD,USEREVAL,AIRMODE,TESTTARNAME,AIRLINE,TESTTARCOMM,TESTBANDRANGE,GRORGH,
+		TGTPHO,LON,SEAAREA,SEACON,BLKLNG,TGTHIGH,SURFTGTNAME,MBHWYSCSSM,SURTGTCLG,TGTCLG,MBFDJGKSM,MBGZTXSM,
+		MBDCYSCSSM,TGTWD,MBJGTDSM,TGTLG,SURTGTCOMM,MOISCONTSOILWGT,LAT,VGTCV,VGTGPAVG,VGTWWLV,VGTCST,VGTHAVG,NOTE
+      )
+    values (
+      #{taskdataid,jdbcType=VARCHAR},#{subtaskdescid,jdbcType=VARCHAR},#{tgtname,jdbcType=VARCHAR},#{tgtdescpt,jdbcType=VARCHAR},
+      #{bkgndname,jdbcType=VARCHAR},#{bkgnddescpt,jdbcType=VARCHAR},#{testname,jdbcType=VARCHAR},#{testleader,jdbcType=VARCHAR},
+      #{testunit,jdbcType=VARCHAR},#{taskcode,jdbcType=VARCHAR},#{taskorig,jdbcType=VARCHAR},#{dataorig,jdbcType=VARCHAR},
+      #{charactdatatype,jdbcType=VARCHAR},#{band,jdbcType=VARCHAR},#{measpla,jdbcType=VARCHAR},#{measdate,jdbcType=VARCHAR},
+      #{scale,jdbcType=VARCHAR},#{calibform,jdbcType=VARCHAR},#{refstdmet,jdbcType=VARCHAR},#{refstdname,jdbcType=VARCHAR},
+      #{refstddim,jdbcType=VARCHAR},#{uncertainty,jdbcType=VARCHAR},#{suitextdata,jdbcType=VARCHAR},#{datagrd,jdbcType=VARCHAR},
+      #{usereval,jdbcType=VARCHAR},#{airmode,jdbcType=VARCHAR},#{testtarname,jdbcType=VARCHAR},#{airline,jdbcType=VARCHAR},
+      #{testtarcomm,jdbcType=VARCHAR},#{testbandrange,jdbcType=VARCHAR},#{grorgh,jdbcType=VARCHAR},#{tgtpho,jdbcType=VARCHAR},
+      #{lon,jdbcType=VARCHAR},#{seaarea,jdbcType=VARCHAR},#{seacon,jdbcType=VARCHAR},#{blklng,jdbcType=VARCHAR},
+      #{tgthigh,jdbcType=VARCHAR},#{surftgtname,jdbcType=VARCHAR},#{mbhwyscssm,jdbcType=VARCHAR},#{surtgtclg,jdbcType=VARCHAR},
+      #{tgtclg,jdbcType=VARCHAR},#{mbfdjgksm,jdbcType=VARCHAR},#{mbgztxsm,jdbcType=VARCHAR},#{mbdcyscssm,jdbcType=VARCHAR},
+      #{tgtwd,jdbcType=VARCHAR},#{mbjgtdsm,jdbcType=VARCHAR},#{tgtlg,jdbcType=VARCHAR},#{surtgtcomm,jdbcType=VARCHAR},
+      #{moiscontsoilwgt,jdbcType=VARCHAR},#{lat,jdbcType=VARCHAR},#{vgtcv,jdbcType=VARCHAR},#{vgtgpavg,jdbcType=VARCHAR},
+      #{vgtwwlv,jdbcType=VARCHAR},#{vgtcst,jdbcType=VARCHAR},#{vgthavg,jdbcType=VARCHAR},#{note,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSubTaskdesc">
+    insert into DA_SUBTASKDESC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+		<if test="taskdataid != null">
+		TASKDATAID
+		</if>
+		<if test="subtaskdescid != null">
+		SUBTASKDESCID
+		</if>
+		<if test="tgtname != null">
+		TGTNAME
+		</if>
+		<if test="tgtdescpt != null">
+		TGTDESCPT
+		</if>
+		<if test="bkgndname != null">
+		BKGNDNAME
+		</if>
+		<if test="bkgnddescpt != null">
+		BKGNDDESCPT
+		</if>
+		<if test="testname != null">
+		TESTNAME
+		</if>
+		<if test="testleader != null">
+		TESTLEADER
+		</if>
+		<if test="testunit != null">
+		TESTUNIT
+		</if>
+		<if test="taskcode != null">
+		TASKCODE
+		</if>
+		<if test="taskorig != null">
+		TASKORIG
+		</if>
+		<if test="dataorig != null">
+		DATAORIG
+		</if>
+		<if test="charactdatatype != null">
+		CHARACTDATATYPE
+		</if>
+		<if test="band != null">
+		BAND
+		</if>
+		<if test="measpla != null">
+		MEASPLA
+		</if>
+		<if test="measdate != null">
+		MEASDATE
+		</if>
+		<if test="scale != null">
+		SCALE
+		</if>
+		<if test="calibform != null">
+		CALIBFORM
+		</if>
+		<if test="refstdmet != null">
+		REFSTDMET
+		</if>
+		<if test="refstdname != null">
+		REFSTDNAME
+		</if>
+		<if test="refstddim != null">
+		REFSTDDIM
+		</if>
+		<if test="uncertainty != null">
+		UNCERTAINTY
+		</if>
+		<if test="suitextdata != null">
+		SUITEXTDATA
+		</if>
+		<if test="datagrd != null">
+		DATAGRD
+		</if>
+		<if test="usereval != null">
+		USEREVAL
+		</if>
+		<if test="airmode != null">
+		AIRMODE
+		</if>
+		<if test="testtarname != null">
+		TESTTARNAME
+		</if>
+		<if test="airline != null">
+		AIRLINE
+		</if>
+		<if test="testtarcomm != null">
+		TESTTARCOMM
+		</if>
+		<if test="testbandrange != null">
+		TESTBANDRANGE
+		</if>
+		<if test="grorgh != null">
+		GRORGH
+		</if>
+		<if test="tgtpho != null">
+		TGTPHO
+		</if>
+		<if test="lon != null">
+		LON
+		</if>
+		<if test="seaarea != null">
+		SEAAREA
+		</if>
+		<if test="seacon != null">
+		SEACON
+		</if>
+		<if test="blklng != null">
+		BLKLNG
+		</if>
+		<if test="tgthigh != null">
+		TGTHIGH
+		</if>
+		<if test="surftgtname != null">
+		SURFTGTNAME
+		</if>
+		<if test="mbhwyscssm != null">
+		MBHWYSCSSM
+		</if>
+		<if test="surtgtclg != null">
+		SURTGTCLG
+		</if>
+		<if test="tgtclg != null">
+		TGTCLG
+		</if>
+		<if test="mbfdjgksm != null">
+		MBFDJGKSM
+		</if>
+		<if test="mbgztxsm != null">
+		MBGZTXSM
+		</if>
+		<if test="mbdcyscssm != null">
+		MBDCYSCSSM
+		</if>
+		<if test="tgtwd != null">
+		TGTWD
+		</if>
+		<if test="mbjgtdsm != null">
+		MBJGTDSM
+		</if>
+		<if test="tgtlg != null">
+		TGTLG
+		</if>
+		<if test="surtgtcomm != null">
+		SURTGTCOMM
+		</if>
+		<if test="moiscontsoilwgt != null">
+		MOISCONTSOILWGT
+		</if>
+		<if test="lat != null">
+		LAT
+		</if>
+		<if test="vgtcv != null">
+		VGTCV
+		</if>
+		<if test="vgtgpavg != null">
+		VGTGPAVG
+		</if>
+		<if test="vgtwwlv != null">
+		VGTWWLV
+		</if>
+		<if test="vgtcst != null">
+		VGTCST
+		</if>
+		<if test="vgthavg != null">
+		VGTHAVG
+		</if>
+		<if test="note != null">
+		NOTE
+		</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		#{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="subtaskdescid != null">
+		#{subtaskdescid,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtname != null">
+		#{tgtname,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtdescpt != null">
+		#{tgtdescpt,jdbcType=VARCHAR},
+		</if>
+		<if test="bkgndname != null">
+		#{bkgndname,jdbcType=VARCHAR},
+		</if>
+		<if test="bkgnddescpt != null">
+		#{bkgnddescpt,jdbcType=VARCHAR},
+		</if>
+		<if test="testname != null">
+		#{testname,jdbcType=VARCHAR},
+		</if>
+		<if test="testleader != null">
+		#{testleader,jdbcType=VARCHAR},
+		</if>
+		<if test="testunit != null">
+		#{testunit,jdbcType=VARCHAR},
+		</if>
+		<if test="taskcode != null">
+		#{taskcode,jdbcType=VARCHAR},
+		</if>
+		<if test="taskorig != null">
+		#{taskorig,jdbcType=VARCHAR},
+		</if>
+		<if test="dataorig != null">
+		#{dataorig,jdbcType=VARCHAR},
+		</if>
+		<if test="charactdatatype != null">
+		#{charactdatatype,jdbcType=VARCHAR},
+		</if>
+		<if test="band != null">
+		#{band,jdbcType=VARCHAR},
+		</if>
+		<if test="measpla != null">
+		#{measpla,jdbcType=VARCHAR},
+		</if>
+		<if test="measdate != null">
+		#{measdate,jdbcType=VARCHAR},
+		</if>
+		<if test="scale != null">
+		#{scale,jdbcType=VARCHAR},
+		</if>
+		<if test="calibform != null">
+		#{calibform,jdbcType=VARCHAR},
+		</if>
+		<if test="refstdmet != null">
+		#{refstdmet,jdbcType=VARCHAR},
+		</if>
+		<if test="refstdname != null">
+		#{refstdname,jdbcType=VARCHAR},
+		</if>
+		<if test="refstddim != null">
+		#{refstddim,jdbcType=VARCHAR},
+		</if>
+		<if test="uncertainty != null">
+		#{uncertainty,jdbcType=VARCHAR},
+		</if>
+		<if test="suitextdata != null">
+		#{suitextdata,jdbcType=VARCHAR},
+		</if>
+		<if test="datagrd != null">
+		#{datagrd,jdbcType=VARCHAR},
+		</if>
+		<if test="usereval != null">
+		#{usereval,jdbcType=VARCHAR},
+		</if>
+		<if test="airmode != null">
+		#{airmode,jdbcType=VARCHAR},
+		</if>
+		<if test="testtarname != null">
+		#{testtarname,jdbcType=VARCHAR},
+		</if>
+		<if test="airline != null">
+		#{airline,jdbcType=VARCHAR},
+		</if>
+		<if test="testtarcomm != null">
+		#{testtarcomm,jdbcType=VARCHAR},
+		</if>
+		<if test="testbandrange != null">
+		#{testbandrange,jdbcType=VARCHAR},
+		</if>
+		<if test="grorgh != null">
+		#{grorgh,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtpho != null">
+		#{tgtpho,jdbcType=VARCHAR},
+		</if>
+		<if test="lon != null">
+		#{lon,jdbcType=VARCHAR},
+		</if>
+		<if test="seaarea != null">
+		#{seaarea,jdbcType=VARCHAR},
+		</if>
+		<if test="seacon != null">
+		#{seacon,jdbcType=VARCHAR},
+		</if>
+		<if test="blklng != null">
+		#{blklng,jdbcType=VARCHAR},
+		</if>
+		<if test="tgthigh != null">
+		#{tgthigh,jdbcType=VARCHAR},
+		</if>
+		<if test="surftgtname != null">
+		#{surftgtname,jdbcType=VARCHAR},
+		</if>
+		<if test="mbhwyscssm != null">
+		#{mbhwyscssm,jdbcType=VARCHAR},
+		</if>
+		<if test="surtgtclg != null">
+		#{surtgtclg,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtclg != null">
+		#{tgtclg,jdbcType=VARCHAR},
+		</if>
+		<if test="mbfdjgksm != null">
+		#{mbfdjgksm,jdbcType=VARCHAR},
+		</if>
+		<if test="mbgztxsm != null">
+		#{mbgztxsm,jdbcType=VARCHAR},
+		</if>
+		<if test="mbdcyscssm != null">
+		#{mbdcyscssm,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtwd != null">
+		#{tgtwd,jdbcType=VARCHAR},
+		</if>
+		<if test="mbjgtdsm != null">
+		#{mbjgtdsm,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtlg != null">
+		#{tgtlg,jdbcType=VARCHAR},
+		</if>
+		<if test="surtgtcomm != null">
+		#{surtgtcomm,jdbcType=VARCHAR},
+		</if>
+		<if test="moiscontsoilwgt != null">
+		#{moiscontsoilwgt,jdbcType=VARCHAR},
+		</if>
+		<if test="lat != null">
+		#{lat,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtcv != null">
+		#{vgtcv,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtgpavg != null">
+		#{vgtgpavg,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtwwlv != null">
+		#{vgtwwlv,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtcst != null">
+		#{vgtcst,jdbcType=VARCHAR},
+		</if>
+		<if test="vgthavg != null">
+		#{vgthavg,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		#{note,jdbcType=VARCHAR}
+		</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSubTaskdesc">
+    update DA_SUBTASKDESC
+    <set>
+      <if test="taskdataid != null">
+		TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="subtaskdescid != null">
+		SUBTASKDESCID = #{subtaskdescid,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtname != null">
+		TGTNAME = #{tgtname,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtdescpt != null">
+		TGTDESCPT = #{tgtdescpt,jdbcType=VARCHAR},
+		</if>
+		<if test="bkgndname != null">
+		BKGNDNAME = #{bkgndname,jdbcType=VARCHAR},
+		</if>
+		<if test="bkgnddescpt != null">
+		BKGNDDESCPT = #{bkgnddescpt,jdbcType=VARCHAR},
+		</if>
+		<if test="testname != null">
+		TESTNAME = #{testname,jdbcType=VARCHAR},
+		</if>
+		<if test="testleader != null">
+		TESTLEADER = #{testleader,jdbcType=VARCHAR},
+		</if>
+		<if test="testunit != null">
+		TESTUNIT = #{testunit,jdbcType=VARCHAR},
+		</if>
+		<if test="taskcode != null">
+		TASKCODE = #{taskcode,jdbcType=VARCHAR},
+		</if>
+		<if test="taskorig != null">
+		TASKORIG = #{taskorig,jdbcType=VARCHAR},
+		</if>
+		<if test="dataorig != null">
+		DATAORIG = #{dataorig,jdbcType=VARCHAR},
+		</if>
+		<if test="charactdatatype != null">
+		CHARACTDATATYPE = #{charactdatatype,jdbcType=VARCHAR},
+		</if>
+		<if test="band != null">
+		BAND = #{band,jdbcType=VARCHAR},
+		</if>
+		<if test="measpla != null">
+		MEASPLA = #{measpla,jdbcType=VARCHAR},
+		</if>
+		<if test="measdate != null">
+		MEASDATE = #{measdate,jdbcType=VARCHAR},
+		</if>
+		<if test="scale != null">
+		SCALE = #{scale,jdbcType=VARCHAR},
+		</if>
+		<if test="calibform != null">
+		CALIBFORM = #{calibform,jdbcType=VARCHAR},
+		</if>
+		<if test="refstdmet != null">
+		REFSTDMET = #{refstdmet,jdbcType=VARCHAR},
+		</if>
+		<if test="refstdname != null">
+		REFSTDNAME = #{refstdname,jdbcType=VARCHAR},
+		</if>
+		<if test="refstddim != null">
+		REFSTDDIM = #{refstddim,jdbcType=VARCHAR},
+		</if>
+		<if test="uncertainty != null">
+		UNCERTAINTY = #{uncertainty,jdbcType=VARCHAR},
+		</if>
+		<if test="suitextdata != null">
+		SUITEXTDATA = #{suitextdata,jdbcType=VARCHAR},
+		</if>
+		<if test="datagrd != null">
+		DATAGRD = #{datagrd,jdbcType=VARCHAR},
+		</if>
+		<if test="usereval != null">
+		USEREVAL = #{usereval,jdbcType=VARCHAR},
+		</if>
+		<if test="airmode != null">
+		AIRMODE = #{airmode,jdbcType=VARCHAR},
+		</if>
+		<if test="testtarname != null">
+		TESTTARNAME = #{testtarname,jdbcType=VARCHAR},
+		</if>
+		<if test="airline != null">
+		AIRLINE = #{airline,jdbcType=VARCHAR},
+		</if>
+		<if test="testtarcomm != null">
+		TESTTARCOMM = #{testtarcomm,jdbcType=VARCHAR},
+		</if>
+		<if test="testbandrange != null">
+		TESTBANDRANGE = #{testbandrange,jdbcType=VARCHAR},
+		</if>
+		<if test="grorgh != null">
+		GRORGH = #{grorgh,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtpho != null">
+		TGTPHO = #{tgtpho,jdbcType=VARCHAR},
+		</if>
+		<if test="lon != null">
+		LON = #{lon,jdbcType=VARCHAR},
+		</if>
+		<if test="seaarea != null">
+		SEAAREA = #{seaarea,jdbcType=VARCHAR},
+		</if>
+		<if test="seacon != null">
+		SEACON = #{seacon,jdbcType=VARCHAR},
+		</if>
+		<if test="blklng != null">
+		BLKLNG = #{blklng,jdbcType=VARCHAR},
+		</if>
+		<if test="tgthigh != null">
+		TGTHIGH = #{tgthigh,jdbcType=VARCHAR},
+		</if>
+		<if test="surftgtname != null">
+		SURFTGTNAME = #{surftgtname,jdbcType=VARCHAR},
+		</if>
+		<if test="mbhwyscssm != null">
+		MBHWYSCSSM = #{mbhwyscssm,jdbcType=VARCHAR},
+		</if>
+		<if test="surtgtclg != null">
+		SURTGTCLG = #{surtgtclg,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtclg != null">
+		TGTCLG = #{tgtclg,jdbcType=VARCHAR},
+		</if>
+		<if test="mbfdjgksm != null">
+		MBFDJGKSM = #{mbfdjgksm,jdbcType=VARCHAR},
+		</if>
+		<if test="mbgztxsm != null">
+		MBGZTXSM = #{mbgztxsm,jdbcType=VARCHAR},
+		</if>
+		<if test="mbdcyscssm != null">
+		MBDCYSCSSM = #{mbdcyscssm,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtwd != null">
+		TGTWD = #{tgtwd,jdbcType=VARCHAR},
+		</if>
+		<if test="mbjgtdsm != null">
+		MBJGTDSM = #{mbjgtdsm,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtlg != null">
+		TGTLG = #{tgtlg,jdbcType=VARCHAR},
+		</if>
+		<if test="surtgtcomm != null">
+		SURTGTCOMM = #{surtgtcomm,jdbcType=VARCHAR},
+		</if>
+		<if test="moiscontsoilwgt != null">
+		MOISCONTSOILWGT = #{moiscontsoilwgt,jdbcType=VARCHAR},
+		</if>
+		<if test="lat != null">
+		LAT = #{lat,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtcv != null">
+		VGTCV = #{vgtcv,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtgpavg != null">
+		VGTGPAVG = #{vgtgpavg,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtwwlv != null">
+		VGTWWLV = #{vgtwwlv,jdbcType=VARCHAR},
+		</if>
+		<if test="vgtcst != null">
+		VGTCST = #{vgtcst,jdbcType=VARCHAR},
+		</if>
+		<if test="vgthavg != null">
+		VGTHAVG = #{vgthavg,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		NOTE = #{note,jdbcType=VARCHAR}
+		</if>
+    </set>
+    where SUBTASKDESCID = #{subtaskdescid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSubTaskdesc">
+    update DA_SUBTASKDESC
+    set 
+      TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		SUBTASKDESCID = #{subtaskdescid,jdbcType=VARCHAR},
+		TGTNAME = #{tgtname,jdbcType=VARCHAR},
+		TGTDESCPT = #{tgtdescpt,jdbcType=VARCHAR},
+		BKGNDNAME = #{bkgndname,jdbcType=VARCHAR},
+		BKGNDDESCPT = #{bkgnddescpt,jdbcType=VARCHAR},
+		TESTNAME = #{testname,jdbcType=VARCHAR},
+		TESTLEADER = #{testleader,jdbcType=VARCHAR},
+		TESTUNIT = #{testunit,jdbcType=VARCHAR},
+		TASKCODE = #{taskcode,jdbcType=VARCHAR},
+		TASKORIG = #{taskorig,jdbcType=VARCHAR},
+		DATAORIG = #{dataorig,jdbcType=VARCHAR},
+		CHARACTDATATYPE = #{charactdatatype,jdbcType=VARCHAR},
+		BAND = #{band,jdbcType=VARCHAR},
+		MEASPLA = #{measpla,jdbcType=VARCHAR},
+		MEASDATE = #{measdate,jdbcType=VARCHAR},
+		SCALE = #{scale,jdbcType=VARCHAR},
+		CALIBFORM = #{calibform,jdbcType=VARCHAR},
+		REFSTDMET = #{refstdmet,jdbcType=VARCHAR},
+		REFSTDNAME = #{refstdname,jdbcType=VARCHAR},
+		REFSTDDIM = #{refstddim,jdbcType=VARCHAR},
+		UNCERTAINTY = #{uncertainty,jdbcType=VARCHAR},
+		SUITEXTDATA = #{suitextdata,jdbcType=VARCHAR},
+		DATAGRD = #{datagrd,jdbcType=VARCHAR},
+		USEREVAL = #{usereval,jdbcType=VARCHAR},
+		AIRMODE = #{airmode,jdbcType=VARCHAR},
+		TESTTARNAME = #{testtarname,jdbcType=VARCHAR},
+		AIRLINE = #{airline,jdbcType=VARCHAR},
+		TESTTARCOMM = #{testtarcomm,jdbcType=VARCHAR},
+		TESTBANDRANGE = #{testbandrange,jdbcType=VARCHAR},
+		GRORGH = #{grorgh,jdbcType=VARCHAR},
+		TGTPHO = #{tgtpho,jdbcType=VARCHAR},
+		LON = #{lon,jdbcType=VARCHAR},
+		SEAAREA = #{seaarea,jdbcType=VARCHAR},
+		SEACON = #{seacon,jdbcType=VARCHAR},
+		BLKLNG = #{blklng,jdbcType=VARCHAR},
+		TGTHIGH = #{tgthigh,jdbcType=VARCHAR},
+		SURFTGTNAME = #{surftgtname,jdbcType=VARCHAR},
+		MBHWYSCSSM = #{mbhwyscssm,jdbcType=VARCHAR},
+		SURTGTCLG = #{surtgtclg,jdbcType=VARCHAR},
+		TGTCLG = #{tgtclg,jdbcType=VARCHAR},
+		MBFDJGKSM = #{mbfdjgksm,jdbcType=VARCHAR},
+		MBGZTXSM = #{mbgztxsm,jdbcType=VARCHAR},
+		MBDCYSCSSM = #{mbdcyscssm,jdbcType=VARCHAR},
+		TGTWD = #{tgtwd,jdbcType=VARCHAR},
+		MBJGTDSM = #{mbjgtdsm,jdbcType=VARCHAR},
+		TGTLG = #{tgtlg,jdbcType=VARCHAR},
+		SURTGTCOMM = #{surtgtcomm,jdbcType=VARCHAR},
+		MOISCONTSOILWGT = #{moiscontsoilwgt,jdbcType=VARCHAR},
+		LAT = #{lat,jdbcType=VARCHAR},
+		VGTCV = #{vgtcv,jdbcType=VARCHAR},
+		VGTGPAVG = #{vgtgpavg,jdbcType=VARCHAR},
+		VGTWWLV = #{vgtwwlv,jdbcType=VARCHAR},
+		VGTCST = #{vgtcst,jdbcType=VARCHAR},
+		VGTHAVG = #{vgthavg,jdbcType=VARCHAR},
+		NOTE = #{note,jdbcType=VARCHAR}
+    where SUBTASKDESCID = #{subtaskdescid,jdbcType=VARCHAR}
+  </update>
+</mapper>

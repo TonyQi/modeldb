@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bcc.security.admin.mapper.DaSystemMapper">
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.dataparse.dataobj.DaSystem">
+    <id column="SYSTEMID" jdbcType="VARCHAR" property="systemid"/>
+    <result column="TASKDATAID" jdbcType="VARCHAR" property="taskdataid"/>
+	<result column="EQUIPMENTID" jdbcType="VARCHAR" property="equipmentid"/>
+	<result column="OPESYS" jdbcType="VARCHAR" property="opesys"/>
+	<result column="DYNRNGRECV" jdbcType="VARCHAR" property="dynrngrecv"/>
+	<result column="TRANSMAVGPWR" jdbcType="VARCHAR" property="transmavgpwr"/>
+	<result column="SYSPOWERSTAB" jdbcType="VARCHAR" property="syspowerstab"/>
+	<result column="RECVPOWERSENS" jdbcType="VARCHAR" property="recvpowersens"/>
+	<result column="RECVNOISECOEF" jdbcType="VARCHAR" property="recvnoisecoef"/>
+	<result column="RECVLINEAR" jdbcType="VARCHAR" property="recvlinear"/>
+	<result column="SYSFREQSTAB" jdbcType="VARCHAR" property="sysfreqstab"/>
+	<result column="PLSWD" jdbcType="VARCHAR" property="plswd"/>
+	<result column="PLSREPTFREQ" jdbcType="VARCHAR" property="plsreptfreq"/>
+	<result column="ANTFORM" jdbcType="VARCHAR" property="antform"/>
+	<result column="ANTBEAMWDH" jdbcType="VARCHAR" property="antbeamwdh"/>
+	<result column="ANTBEAMWDE" jdbcType="VARCHAR" property="antbeamwde"/>
+	<result column="ANTGAIN" jdbcType="VARCHAR" property="antgain"/>
+	<result column="RECVNONLINTY" jdbcType="VARCHAR" property="recvnonlinty"/>
+	<result column="RECVSENS" jdbcType="VARCHAR" property="recvsens"/>
+	<result column="BAND" jdbcType="VARCHAR" property="band"/>
+	<result column="FIELDVIEW" jdbcType="VARCHAR" property="fieldview"/>
+	<result column="INSTFIELDVIEW" jdbcType="VARCHAR" property="instfieldview"/>
+	<result column="SENSITIVITY" jdbcType="VARCHAR" property="sensitivity"/>
+	<result column="MEASRNG" jdbcType="VARCHAR" property="measrng"/>
+	<result column="SAMPLINGVEL" jdbcType="VARCHAR" property="samplingvel"/>
+	<result column="RECRDVEL" jdbcType="VARCHAR" property="recrdvel"/>
+	<result column="RESPONSIVE" jdbcType="VARCHAR" property="responsive"/>
+	<result column="BANDW" jdbcType="VARCHAR" property="bandw"/>
+	<result column="SAMPNUM" jdbcType="VARCHAR" property="sampnum"/>
+	<result column="DISKLV" jdbcType="VARCHAR" property="disklv"/>
+	<result column="EPTBAND" jdbcType="VARCHAR" property="eptband"/>
+	<result column="EQPTNAME" jdbcType="VARCHAR" property="eqptname"/>
+	<result column="EQPTMOD" jdbcType="VARCHAR" property="eqptmod"/>
+	<result column="NOTE" jdbcType="VARCHAR" property="note"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TASKDATAID,SYSTEMID,EQUIPMENTID,OPESYS,DYNRNGRECV,TRANSMAVGPWR,SYSPOWERSTAB,RECVPOWERSENS,RECVNOISECOEF,
+	RECVLINEAR,SYSFREQSTAB,PLSWD,PLSREPTFREQ,ANTFORM,ANTBEAMWDH,ANTBEAMWDE,ANTGAIN,RECVNONLINTY,RECVSENS,BAND,
+	FIELDVIEW,INSTFIELDVIEW,SENSITIVITY,MEASRNG,SAMPLINGVEL,RECRDVEL,RESPONSIVE,BANDW,SAMPNUM,DISKLV,EPTBAND,
+	EQPTNAME,EQPTMOD,NOTE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_SYSTEM
+    where SYSTEMID = #{systemid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTaskId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_SYSTEM
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DA_SYSTEM
+    where SYSTEMID = #{systemid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSystem">
+    insert into DA_SYSTEM (
+      TASKDATAID,SYSTEMID,EQUIPMENTID,OPESYS,DYNRNGRECV,TRANSMAVGPWR,SYSPOWERSTAB,RECVPOWERSENS,RECVNOISECOEF,
+		RECVLINEAR,SYSFREQSTAB,PLSWD,PLSREPTFREQ,ANTFORM,ANTBEAMWDH,ANTBEAMWDE,ANTGAIN,RECVNONLINTY,RECVSENS,BAND,
+		FIELDVIEW,INSTFIELDVIEW,SENSITIVITY,MEASRNG,SAMPLINGVEL,RECRDVEL,RESPONSIVE,BANDW,SAMPNUM,DISKLV,EPTBAND,
+		EQPTNAME,EQPTMOD,NOTE
+     	)
+    values (
+    	#{taskdataid,jdbcType=VARCHAR},#{systemid,jdbcType=VARCHAR},#{equipmentid,jdbcType=VARCHAR},#{opesys,jdbcType=VARCHAR},
+    	#{dynrngrecv,jdbcType=VARCHAR},#{transmavgpwr,jdbcType=VARCHAR},#{syspowerstab,jdbcType=VARCHAR},#{recvpowersens,jdbcType=VARCHAR},
+    	#{recvnoisecoef,jdbcType=VARCHAR},#{recvlinear,jdbcType=VARCHAR},#{sysfreqstab,jdbcType=VARCHAR},#{plswd,jdbcType=VARCHAR},
+    	#{plsreptfreq,jdbcType=VARCHAR},#{antform,jdbcType=VARCHAR},#{antbeamwdh,jdbcType=VARCHAR},#{antbeamwde,jdbcType=VARCHAR},#{antgain,jdbcType=VARCHAR},
+    	#{recvnonlinty,jdbcType=VARCHAR},#{recvsens,jdbcType=VARCHAR},#{band,jdbcType=VARCHAR},#{fieldview,jdbcType=VARCHAR},#{instfieldview,jdbcType=VARCHAR},
+    	#{sensitivity,jdbcType=VARCHAR},#{measrng,jdbcType=VARCHAR},#{samplingvel,jdbcType=VARCHAR},#{recrdvel,jdbcType=VARCHAR},#{responsive,jdbcType=VARCHAR},
+    	#{bandw,jdbcType=VARCHAR},#{sampnum,jdbcType=VARCHAR},#{disklv,jdbcType=VARCHAR},#{eptband,jdbcType=VARCHAR},#{eqptname,jdbcType=VARCHAR},
+    	#{eqptmod,jdbcType=VARCHAR},#{note,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSystem">
+    insert into DA_SYSTEM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		TASKDATAID
+		</if>
+		<if test="systemid != null">
+		SYSTEMID
+		</if>
+		<if test="equipmentid != null">
+		EQUIPMENTID
+		</if>
+		<if test="opesys != null">
+		OPESYS
+		</if>
+		<if test="dynrngrecv != null">
+		DYNRNGRECV
+		</if>
+		<if test="transmavgpwr != null">
+		TRANSMAVGPWR
+		</if>
+		<if test="syspowerstab != null">
+		SYSPOWERSTAB
+		</if>
+		<if test="recvpowersens != null">
+		RECVPOWERSENS
+		</if>
+		<if test="recvnoisecoef != null">
+		RECVNOISECOEF
+		</if>
+		<if test="recvlinear != null">
+		RECVLINEAR
+		</if>
+		<if test="sysfreqstab != null">
+		SYSFREQSTAB
+		</if>
+		<if test="plswd != null">
+		PLSWD
+		</if>
+		<if test="plsreptfreq != null">
+		PLSREPTFREQ
+		</if>
+		<if test="antform != null">
+		ANTFORM
+		</if>
+		<if test="antbeamwdh != null">
+		ANTBEAMWDH
+		</if>
+		<if test="antbeamwde != null">
+		ANTBEAMWDE
+		</if>
+		<if test="antgain != null">
+		ANTGAIN
+		</if>
+		<if test="recvnonlinty != null">
+		RECVNONLINTY
+		</if>
+		<if test="recvsens != null">
+		RECVSENS
+		</if>
+		<if test="band != null">
+		BAND
+		</if>
+		<if test="fieldview != null">
+		FIELDVIEW
+		</if>
+		<if test="instfieldview != null">
+		INSTFIELDVIEW
+		</if>
+		<if test="sensitivity != null">
+		SENSITIVITY
+		</if>
+		<if test="measrng != null">
+		MEASRNG
+		</if>
+		<if test="samplingvel != null">
+		SAMPLINGVEL
+		</if>
+		<if test="recrdvel != null">
+		RECRDVEL
+		</if>
+		<if test="responsive != null">
+		RESPONSIVE
+		</if>
+		<if test="bandw != null">
+		BANDW
+		</if>
+		<if test="sampnum != null">
+		SAMPNUM
+		</if>
+		<if test="disklv != null">
+		DISKLV
+		</if>
+		<if test="eptband != null">
+		EPTBAND
+		</if>
+		<if test="eqptname != null">
+		EQPTNAME
+		</if>
+		<if test="eqptmod != null">
+		EQPTMOD
+		</if>
+		<if test="note != null">
+		NOTE
+		</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		#{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="systemid != null">
+		#{systemid,jdbcType=VARCHAR},
+		</if>
+		<if test="equipmentid != null">
+		#{equipmentid,jdbcType=VARCHAR},
+		</if>
+		<if test="opesys != null">
+		#{opesys,jdbcType=VARCHAR},
+		</if>
+		<if test="dynrngrecv != null">
+		#{dynrngrecv,jdbcType=VARCHAR},
+		</if>
+		<if test="transmavgpwr != null">
+		#{transmavgpwr,jdbcType=VARCHAR},
+		</if>
+		<if test="syspowerstab != null">
+		#{syspowerstab,jdbcType=VARCHAR},
+		</if>
+		<if test="recvpowersens != null">
+		#{recvpowersens,jdbcType=VARCHAR},
+		</if>
+		<if test="recvnoisecoef != null">
+		#{recvnoisecoef,jdbcType=VARCHAR},
+		</if>
+		<if test="recvlinear != null">
+		#{recvlinear,jdbcType=VARCHAR},
+		</if>
+		<if test="sysfreqstab != null">
+		#{sysfreqstab,jdbcType=VARCHAR},
+		</if>
+		<if test="plswd != null">
+		#{plswd,jdbcType=VARCHAR},
+		</if>
+		<if test="plsreptfreq != null">
+		#{plsreptfreq,jdbcType=VARCHAR},
+		</if>
+		<if test="antform != null">
+		#{antform,jdbcType=VARCHAR},
+		</if>
+		<if test="antbeamwdh != null">
+		#{antbeamwdh,jdbcType=VARCHAR},
+		</if>
+		<if test="antbeamwde != null">
+		#{antbeamwde,jdbcType=VARCHAR},
+		</if>
+		<if test="antgain != null">
+		#{antgain,jdbcType=VARCHAR},
+		</if>
+		<if test="recvnonlinty != null">
+		#{recvnonlinty,jdbcType=VARCHAR},
+		</if>
+		<if test="recvsens != null">
+		#{recvsens,jdbcType=VARCHAR},
+		</if>
+		<if test="band != null">
+		#{band,jdbcType=VARCHAR},
+		</if>
+		<if test="fieldview != null">
+		#{fieldview,jdbcType=VARCHAR},
+		</if>
+		<if test="instfieldview != null">
+		#{instfieldview,jdbcType=VARCHAR},
+		</if>
+		<if test="sensitivity != null">
+		#{sensitivity,jdbcType=VARCHAR},
+		</if>
+		<if test="measrng != null">
+		#{measrng,jdbcType=VARCHAR},
+		</if>
+		<if test="samplingvel != null">
+		#{samplingvel,jdbcType=VARCHAR},
+		</if>
+		<if test="recrdvel != null">
+		#{recrdvel,jdbcType=VARCHAR},
+		</if>
+		<if test="responsive != null">
+		#{responsive,jdbcType=VARCHAR},
+		</if>
+		<if test="bandw != null">
+		#{bandw,jdbcType=VARCHAR},
+		</if>
+		<if test="sampnum != null">
+		#{sampnum,jdbcType=VARCHAR},
+		</if>
+		<if test="disklv != null">
+		#{disklv,jdbcType=VARCHAR},
+		</if>
+		<if test="eptband != null">
+		#{eptband,jdbcType=VARCHAR},
+		</if>
+		<if test="eqptname != null">
+		#{eqptname,jdbcType=VARCHAR},
+		</if>
+		<if test="eqptmod != null">
+		#{eqptmod,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		#{note,jdbcType=VARCHAR}
+		</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSystem">
+    update DA_SYSTEM
+    <set>
+      <if test="taskdataid != null">
+		TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="systemid != null">
+		SYSTEMID = #{systemid,jdbcType=VARCHAR},
+		</if>
+		<if test="equipmentid != null">
+		EQUIPMENTID = #{equipmentid,jdbcType=VARCHAR},
+		</if>
+		<if test="opesys != null">
+		OPESYS = #{opesys,jdbcType=VARCHAR},
+		</if>
+		<if test="dynrngrecv != null">
+		DYNRNGRECV = #{dynrngrecv,jdbcType=VARCHAR},
+		</if>
+		<if test="transmavgpwr != null">
+		TRANSMAVGPWR = #{transmavgpwr,jdbcType=VARCHAR},
+		</if>
+		<if test="syspowerstab != null">
+		SYSPOWERSTAB = #{syspowerstab,jdbcType=VARCHAR},
+		</if>
+		<if test="recvpowersens != null">
+		RECVPOWERSENS = #{recvpowersens,jdbcType=VARCHAR},
+		</if>
+		<if test="recvnoisecoef != null">
+		RECVNOISECOEF = #{recvnoisecoef,jdbcType=VARCHAR},
+		</if>
+		<if test="recvlinear != null">
+		RECVLINEAR = #{recvlinear,jdbcType=VARCHAR},
+		</if>
+		<if test="sysfreqstab != null">
+		SYSFREQSTAB = #{sysfreqstab,jdbcType=VARCHAR},
+		</if>
+		<if test="plswd != null">
+		PLSWD = #{plswd,jdbcType=VARCHAR},
+		</if>
+		<if test="plsreptfreq != null">
+		PLSREPTFREQ = #{plsreptfreq,jdbcType=VARCHAR},
+		</if>
+		<if test="antform != null">
+		ANTFORM = #{antform,jdbcType=VARCHAR},
+		</if>
+		<if test="antbeamwdh != null">
+		ANTBEAMWDH = #{antbeamwdh,jdbcType=VARCHAR},
+		</if>
+		<if test="antbeamwde != null">
+		ANTBEAMWDE = #{antbeamwde,jdbcType=VARCHAR},
+		</if>
+		<if test="antgain != null">
+		ANTGAIN = #{antgain,jdbcType=VARCHAR},
+		</if>
+		<if test="recvnonlinty != null">
+		RECVNONLINTY = #{recvnonlinty,jdbcType=VARCHAR},
+		</if>
+		<if test="recvsens != null">
+		RECVSENS = #{recvsens,jdbcType=VARCHAR},
+		</if>
+		<if test="band != null">
+		BAND = #{band,jdbcType=VARCHAR},
+		</if>
+		<if test="fieldview != null">
+		FIELDVIEW = #{fieldview,jdbcType=VARCHAR},
+		</if>
+		<if test="instfieldview != null">
+		INSTFIELDVIEW = #{instfieldview,jdbcType=VARCHAR},
+		</if>
+		<if test="sensitivity != null">
+		SENSITIVITY = #{sensitivity,jdbcType=VARCHAR},
+		</if>
+		<if test="measrng != null">
+		MEASRNG = #{measrng,jdbcType=VARCHAR},
+		</if>
+		<if test="samplingvel != null">
+		SAMPLINGVEL = #{samplingvel,jdbcType=VARCHAR},
+		</if>
+		<if test="recrdvel != null">
+		RECRDVEL = #{recrdvel,jdbcType=VARCHAR},
+		</if>
+		<if test="responsive != null">
+		RESPONSIVE = #{responsive,jdbcType=VARCHAR},
+		</if>
+		<if test="bandw != null">
+		BANDW = #{bandw,jdbcType=VARCHAR},
+		</if>
+		<if test="sampnum != null">
+		SAMPNUM = #{sampnum,jdbcType=VARCHAR},
+		</if>
+		<if test="disklv != null">
+		DISKLV = #{disklv,jdbcType=VARCHAR},
+		</if>
+		<if test="eptband != null">
+		EPTBAND = #{eptband,jdbcType=VARCHAR},
+		</if>
+		<if test="eqptname != null">
+		EQPTNAME = #{eqptname,jdbcType=VARCHAR},
+		</if>
+		<if test="eqptmod != null">
+		EQPTMOD = #{eqptmod,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		NOTE = #{note,jdbcType=VARCHAR}
+		</if>
+    </set>
+    where SYSTEMID = #{systemid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bcc.security.admin.dataparse.dataobj.DaSystem">
+    update DA_SYSTEM
+    set 
+      TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		SYSTEMID = #{systemid,jdbcType=VARCHAR},
+		EQUIPMENTID = #{equipmentid,jdbcType=VARCHAR},
+		OPESYS = #{opesys,jdbcType=VARCHAR},
+		DYNRNGRECV = #{dynrngrecv,jdbcType=VARCHAR},
+		TRANSMAVGPWR = #{transmavgpwr,jdbcType=VARCHAR},
+		SYSPOWERSTAB = #{syspowerstab,jdbcType=VARCHAR},
+		RECVPOWERSENS = #{recvpowersens,jdbcType=VARCHAR},
+		RECVNOISECOEF = #{recvnoisecoef,jdbcType=VARCHAR},
+		RECVLINEAR = #{recvlinear,jdbcType=VARCHAR},
+		SYSFREQSTAB = #{sysfreqstab,jdbcType=VARCHAR},
+		PLSWD = #{plswd,jdbcType=VARCHAR},
+		PLSREPTFREQ = #{plsreptfreq,jdbcType=VARCHAR},
+		ANTFORM = #{antform,jdbcType=VARCHAR},
+		ANTBEAMWDH = #{antbeamwdh,jdbcType=VARCHAR},
+		ANTBEAMWDE = #{antbeamwde,jdbcType=VARCHAR},
+		ANTGAIN = #{antgain,jdbcType=VARCHAR},
+		RECVNONLINTY = #{recvnonlinty,jdbcType=VARCHAR},
+		RECVSENS = #{recvsens,jdbcType=VARCHAR},
+		BAND = #{band,jdbcType=VARCHAR},
+		FIELDVIEW = #{fieldview,jdbcType=VARCHAR},
+		INSTFIELDVIEW = #{instfieldview,jdbcType=VARCHAR},
+		SENSITIVITY = #{sensitivity,jdbcType=VARCHAR},
+		MEASRNG = #{measrng,jdbcType=VARCHAR},
+		SAMPLINGVEL = #{samplingvel,jdbcType=VARCHAR},
+		RECRDVEL = #{recrdvel,jdbcType=VARCHAR},
+		RESPONSIVE = #{responsive,jdbcType=VARCHAR},
+		BANDW = #{bandw,jdbcType=VARCHAR},
+		SAMPNUM = #{sampnum,jdbcType=VARCHAR},
+		DISKLV = #{disklv,jdbcType=VARCHAR},
+		EPTBAND = #{eptband,jdbcType=VARCHAR},
+		EQPTNAME = #{eqptname,jdbcType=VARCHAR},
+		EQPTMOD = #{eqptmod,jdbcType=VARCHAR},
+		NOTE = #{note,jdbcType=VARCHAR}
+    where SYSTEMID = #{systemid,jdbcType=VARCHAR}
+  </update>
+</mapper>

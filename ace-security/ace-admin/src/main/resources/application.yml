@@ -1,0 +1,76 @@
+logging:
+  level: 
+    com.bcc.security.admin: INFO
+spring:
+  application:
+    name: ace-admin
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: NON_NULL
+  datasource:
+    name: test
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+    username: agadmin
+    password: agadmin
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: oracle.jdbc.OracleDriver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+    multipart:
+      max-file-size: 20Mb
+      max-request-size: 20Mb
+mybatis:
+  basepackage: com.bcc.security.admin.mapper
+  xmlLocation: classpath:mapper/**/*.xml
+
+server:
+    port: 8762
+    tomcat:
+      uri-encoding: UTF-8
+
+eureka:
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:192.168.112.134}:${EUREKA_PORT:8761}/eureka/
+
+auth:
+  serviceId: ace-auth
+  user:
+    token-header: Authorization
+
+#redis-cache 相关
+redis: 
+  pool:
+    maxActive: 300
+    maxIdle: 100
+    maxWait: 1000
+  host: 192.168.112.134
+  port: 6379
+  password:
+  timeout: 2000
+  sysName: ace-admin
+  database: 0
+bcc:
+  filelocation: D://test

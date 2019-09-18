@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: ace-auth
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: NON_NULL
+  redis:
+    database: 1
+    host: 192.168.112.134
+    port: 6379
+    pool:
+      minIdle: 5
+      maxIdle: 20
+      maxActive: 100
+      maxWait: 5000
+server:
+  port: 9778 #启动端口
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 20 ##并发执行的最大线程数，默认10
+      maxQueueSize: 1000 ##BlockingQueue的最大队列数
+      queueSizeRejectionThreshold: 500 ##即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+eureka:
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    prefer-ip-address: true
+  client:
+    serviceUrl: 
+      defaultZone: http://${EUREKA_HOST:192.168.112.134}:${EUREKA_PORT:8761}/eureka/
+
+jwt:
+  token-header: Authorization
+  expire: 3600
+  rsa-secret: xx1WET12^%3^(WE45  # 根据这个密码生成一对非对称RSA秘钥，并缓存在Redis，用来用户Token生成（私钥）、数字签名验证（公钥）

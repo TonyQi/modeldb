@@ -1,0 +1,85 @@
+spring:
+  application:
+    name: ace-gate
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: NON_NULL
+  redis:
+    database: 1
+    host: 192.168.112.134
+    port: 6379
+    pool:
+      minIdle: 5
+      maxIdle: 20
+      maxActive: 100
+      maxWait: 5000
+    timeout: 2000
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+    multipart:
+      max-file-size: 20Mb
+      max-request-size: 20Mb
+server:
+  port: 8765 #启动端口
+  tomcat:
+    uri-encoding: UTF-8
+zuul:
+  ignored-services: "*"
+  sensitive-headers:
+  prefix: /api #为zuul设置一个公共的前缀
+  ratelimit: # 网关限流
+    key-prefix: gate_rate
+    enabled: true
+    repository: REDIS  #REDIS, IN_MEMORY
+    behind-proxy: true
+    default-policy: #optional - will apply unless specific policy exists
+      limit: 200
+      refresh-interval: 60 #default value (in seconds)
+      type: #optional - user
+        - origin
+        - url
+  routes:
+    back:
+      path: /admin/**
+      serviceId: ace-admin
+
+    auth:
+      path: /auth/**
+      serviceId: ace-auth
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
+  
+hystrix:
+  threadpool:
+    default:
+      coreSize: 20 ##并发执行的最大线程数，默认10
+      maxQueueSize: 1000 ##BlockingQueue的最大队列数
+      queueSizeRejectionThreshold: 500 ##即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
+gate:
+  ignore:
+    startWith: /static,/auth/jwt,/admin/file/downloadFile,/admin/filedown/twoDData,/admin/filedown/threeD
+
+auth: 
+  serviceId: ace-auth
+  user:
+    token-header: Authorization

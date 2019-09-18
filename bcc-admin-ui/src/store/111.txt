@@ -1,0 +1,3 @@
+INSERT INTO cof_user_account (user_account_id, created_time, modified_time, deleted, tenant_code, account_expired_date, email, name, password, password_expired_date, start_valid_date, status, username, creator, modifier) VALUES (1, null, null, false, null, null, null, 'governor', '000000', null, null, '1', 'governor', null, null);
+ 
+INSERT INTO cof_user_account (user_account_id, created_time, modified_time, deleted, tenant_code, account_expired_date, email, name, password, password_expired_date, start_valid_date, status, username, creator, modifier) VALUES (2, null, null, false, null, null, null, 'sysadmin', '000000', null, null, '1', 'sysadmin', null, null);

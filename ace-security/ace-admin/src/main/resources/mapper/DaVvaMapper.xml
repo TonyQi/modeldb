@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bcc.security.admin.mapper.DaVvaMapper">
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.dataparse.dataobj.DaVva">
+    <result column="TASKDATAID" jdbcType="VARCHAR" property="taskdataid"/>
+	<result column="VVAPERS" jdbcType="VARCHAR" property="vvapers"/>
+	<result column="VVASTATUS" jdbcType="VARCHAR" property="vvastatus"/>
+	<result column="VVAGROUP" jdbcType="VARCHAR" property="vvagroup"/>
+	<result column="VVAREPORT" jdbcType="VARCHAR" property="vvareport"/>
+	<result column="VVATESTFN" jdbcType="VARCHAR" property="vvatestfn"/>
+	<result column="VVAPLANRP" jdbcType="VARCHAR" property="vvaplanrp"/>
+	<result column="VVADOCABS" jdbcType="VARCHAR" property="vvadocabs"/>
+	<result column="CLDGXHBG" jdbcType="VARCHAR" property="cldgxhbg"/>
+	<result column="VVATM" jdbcType="VARCHAR" property="vvatm"/>
+	<result column="CTCFN" jdbcType="VARCHAR" property="ctcfn"/>
+	<result column="VVATCNFN" jdbcType="VARCHAR" property="vvatcnfn"/>
+	<result column="VVAPRS" jdbcType="VARCHAR" property="vvaprs"/>
+	<result column="VVARYSXH" jdbcType="VARCHAR" property="vvarysxh"/>
+	<result column="VVARWSFN" jdbcType="VARCHAR" property="vvarwsfn"/>
+	<result column="VVASJCJXHBG" jdbcType="VARCHAR" property="vvasjcjxhbg"/>
+	<result column="VVASJFXCLXHBG" jdbcType="VARCHAR" property="vvasjfxclxhbg"/>
+	<result column="VVASHQRBG" jdbcType="VARCHAR" property="vvashqrbg"/>
+	<result column="VVASJYZBG" jdbcType="VARCHAR" property="vvasjyzbg"/>
+	<result column="VVAXHBG" jdbcType="VARCHAR" property="vvaxhbg"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TASKDATAID,VVAPERS,VVASTATUS,VVAGROUP,VVAREPORT,VVATESTFN,VVAPLANRP,VVADOCABS,CLDGXHBG,VVATM,CTCFN,VVATCNFN,VVAPRS,VVARYSXH,VVARWSFN,
+	VVASJCJXHBG,VVASJFXCLXHBG,VVASHQRBG,VVASJYZBG,VVAXHBG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_VVA
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTaskId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_VVA
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DA_VVA
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bcc.security.admin.dataparse.dataobj.DaVva">
+    insert into DA_VVA (
+    	TASKDATAID,VVAPERS,VVASTATUS,VVAGROUP,VVAREPORT,VVATESTFN,VVAPLANRP,VVADOCABS,CLDGXHBG,VVATM,CTCFN,VVATCNFN,VVAPRS,VVARYSXH,VVARWSFN,
+		VVASJCJXHBG,VVASJFXCLXHBG,VVASHQRBG,VVASJYZBG,VVAXHBG
+      )
+    values (
+    	#{taskdataid,jdbcType=VARCHAR},#{vvapers,jdbcType=VARCHAR},#{vvastatus,jdbcType=VARCHAR},#{vvagroup,jdbcType=VARCHAR},#{vvareport,jdbcType=VARCHAR},
+    	#{vvatestfn,jdbcType=VARCHAR},#{vvaplanrp,jdbcType=VARCHAR},#{vvadocabs,jdbcType=VARCHAR},#{cldgxhbg,jdbcType=VARCHAR},#{vvatm,jdbcType=VARCHAR},
+    	#{ctcfn,jdbcType=VARCHAR},#{vvatcnfn,jdbcType=VARCHAR},#{vvaprs,jdbcType=VARCHAR},#{vvarysxh,jdbcType=VARCHAR},#{vvarwsfn,jdbcType=VARCHAR},
+    	#{vvasjcjxhbg,jdbcType=VARCHAR},#{vvasjfxclxhbg,jdbcType=VARCHAR},#{vvashqrbg,jdbcType=VARCHAR},#{vvasjyzbg,jdbcType=VARCHAR},#{vvaxhbg,jdbcType=VARCHAR}
+	)
+  </insert>
+  <insert id="insertSelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaVva">
+    insert into DA_VVA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		TASKDATAID
+		</if>
+		<if test="vvapers != null">
+		VVAPERS
+		</if>
+		<if test="vvastatus != null">
+		VVASTATUS
+		</if>
+		<if test="vvagroup != null">
+		VVAGROUP
+		</if>
+		<if test="vvareport != null">
+		VVAREPORT
+		</if>
+		<if test="vvatestfn != null">
+		VVATESTFN
+		</if>
+		<if test="vvaplanrp != null">
+		VVAPLANRP
+		</if>
+		<if test="vvadocabs != null">
+		VVADOCABS
+		</if>
+		<if test="cldgxhbg != null">
+		CLDGXHBG
+		</if>
+		<if test="vvatm != null">
+		VVATM
+		</if>
+		<if test="ctcfn != null">
+		CTCFN
+		</if>
+		<if test="vvatcnfn != null">
+		VVATCNFN
+		</if>
+		<if test="vvaprs != null">
+		VVAPRS
+		</if>
+		<if test="vvarysxh != null">
+		VVARYSXH
+		</if>
+		<if test="vvarwsfn != null">
+		VVARWSFN
+		</if>
+		<if test="vvasjcjxhbg != null">
+		VVASJCJXHBG
+		</if>
+		<if test="vvasjfxclxhbg != null">
+		VVASJFXCLXHBG
+		</if>
+		<if test="vvashqrbg != null">
+		VVASHQRBG
+		</if>
+		<if test="vvasjyzbg != null">
+		VVASJYZBG
+		</if>
+		<if test="vvaxhbg != null">
+		VVAXHBG
+		</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		#{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="vvapers != null">
+		#{vvapers,jdbcType=VARCHAR},
+		</if>
+		<if test="vvastatus != null">
+		#{vvastatus,jdbcType=VARCHAR},
+		</if>
+		<if test="vvagroup != null">
+		#{vvagroup,jdbcType=VARCHAR},
+		</if>
+		<if test="vvareport != null">
+		#{vvareport,jdbcType=VARCHAR},
+		</if>
+		<if test="vvatestfn != null">
+		#{vvatestfn,jdbcType=VARCHAR},
+		</if>
+		<if test="vvaplanrp != null">
+		#{vvaplanrp,jdbcType=VARCHAR},
+		</if>
+		<if test="vvadocabs != null">
+		#{vvadocabs,jdbcType=VARCHAR},
+		</if>
+		<if test="cldgxhbg != null">
+		#{cldgxhbg,jdbcType=VARCHAR},
+		</if>
+		<if test="vvatm != null">
+		#{vvatm,jdbcType=VARCHAR},
+		</if>
+		<if test="ctcfn != null">
+		#{ctcfn,jdbcType=VARCHAR},
+		</if>
+		<if test="vvatcnfn != null">
+		#{vvatcnfn,jdbcType=VARCHAR},
+		</if>
+		<if test="vvaprs != null">
+		#{vvaprs,jdbcType=VARCHAR},
+		</if>
+		<if test="vvarysxh != null">
+		#{vvarysxh,jdbcType=VARCHAR},
+		</if>
+		<if test="vvarwsfn != null">
+		#{vvarwsfn,jdbcType=VARCHAR},
+		</if>
+		<if test="vvasjcjxhbg != null">
+		#{vvasjcjxhbg,jdbcType=VARCHAR},
+		</if>
+		<if test="vvasjfxclxhbg != null">
+		#{vvasjfxclxhbg,jdbcType=VARCHAR},
+		</if>
+		<if test="vvashqrbg != null">
+		#{vvashqrbg,jdbcType=VARCHAR},
+		</if>
+		<if test="vvasjyzbg != null">
+		#{vvasjyzbg,jdbcType=VARCHAR},
+		</if>
+		<if test="vvaxhbg != null">
+		#{vvaxhbg,jdbcType=VARCHAR}
+		</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaVva">
+    update DA_VVA
+    <set>
+      <if test="taskdataid != null">
+	TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+	</if>
+	<if test="vvapers != null">
+	VVAPERS = #{vvapers,jdbcType=VARCHAR},
+	</if>
+	<if test="vvastatus != null">
+	VVASTATUS = #{vvastatus,jdbcType=VARCHAR},
+	</if>
+	<if test="vvagroup != null">
+	VVAGROUP = #{vvagroup,jdbcType=VARCHAR},
+	</if>
+	<if test="vvareport != null">
+	VVAREPORT = #{vvareport,jdbcType=VARCHAR},
+	</if>
+	<if test="vvatestfn != null">
+	VVATESTFN = #{vvatestfn,jdbcType=VARCHAR},
+	</if>
+	<if test="vvaplanrp != null">
+	VVAPLANRP = #{vvaplanrp,jdbcType=VARCHAR},
+	</if>
+	<if test="vvadocabs != null">
+	VVADOCABS = #{vvadocabs,jdbcType=VARCHAR},
+	</if>
+	<if test="cldgxhbg != null">
+	CLDGXHBG = #{cldgxhbg,jdbcType=VARCHAR},
+	</if>
+	<if test="vvatm != null">
+	VVATM = #{vvatm,jdbcType=VARCHAR},
+	</if>
+	<if test="ctcfn != null">
+	CTCFN = #{ctcfn,jdbcType=VARCHAR},
+	</if>
+	<if test="vvatcnfn != null">
+	VVATCNFN = #{vvatcnfn,jdbcType=VARCHAR},
+	</if>
+	<if test="vvaprs != null">
+	VVAPRS = #{vvaprs,jdbcType=VARCHAR},
+	</if>
+	<if test="vvarysxh != null">
+	VVARYSXH = #{vvarysxh,jdbcType=VARCHAR},
+	</if>
+	<if test="vvarwsfn != null">
+	VVARWSFN = #{vvarwsfn,jdbcType=VARCHAR},
+	</if>
+	<if test="vvasjcjxhbg != null">
+	VVASJCJXHBG = #{vvasjcjxhbg,jdbcType=VARCHAR},
+	</if>
+	<if test="vvasjfxclxhbg != null">
+	VVASJFXCLXHBG = #{vvasjfxclxhbg,jdbcType=VARCHAR},
+	</if>
+	<if test="vvashqrbg != null">
+	VVASHQRBG = #{vvashqrbg,jdbcType=VARCHAR},
+	</if>
+	<if test="vvasjyzbg != null">
+	VVASJYZBG = #{vvasjyzbg,jdbcType=VARCHAR},
+	</if>
+	<if test="vvaxhbg != null">
+	VVAXHBG = #{vvaxhbg,jdbcType=VARCHAR}
+	</if>
+    </set>
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bcc.security.admin.dataparse.dataobj.DaVva">
+    update DA_VVA
+    set 
+    	TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		VVAPERS = #{vvapers,jdbcType=VARCHAR},
+		VVASTATUS = #{vvastatus,jdbcType=VARCHAR},
+		VVAGROUP = #{vvagroup,jdbcType=VARCHAR},
+		VVAREPORT = #{vvareport,jdbcType=VARCHAR},
+		VVATESTFN = #{vvatestfn,jdbcType=VARCHAR},
+		VVAPLANRP = #{vvaplanrp,jdbcType=VARCHAR},
+		VVADOCABS = #{vvadocabs,jdbcType=VARCHAR},
+		CLDGXHBG = #{cldgxhbg,jdbcType=VARCHAR},
+		VVATM = #{vvatm,jdbcType=VARCHAR},
+		CTCFN = #{ctcfn,jdbcType=VARCHAR},
+		VVATCNFN = #{vvatcnfn,jdbcType=VARCHAR},
+		VVAPRS = #{vvaprs,jdbcType=VARCHAR},
+		VVARYSXH = #{vvarysxh,jdbcType=VARCHAR},
+		VVARWSFN = #{vvarwsfn,jdbcType=VARCHAR},
+		VVASJCJXHBG = #{vvasjcjxhbg,jdbcType=VARCHAR},
+		VVASJFXCLXHBG = #{vvasjfxclxhbg,jdbcType=VARCHAR},
+		VVASHQRBG = #{vvashqrbg,jdbcType=VARCHAR},
+		VVASJYZBG = #{vvasjyzbg,jdbcType=VARCHAR},
+		VVAXHBG = #{vvaxhbg,jdbcType=VARCHAR}
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </update>
+</mapper>

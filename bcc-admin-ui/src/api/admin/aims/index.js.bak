@@ -1,0 +1,54 @@
+import fetch from 'utils/fetch';
+
+
+export function upload(obj) {
+  return fetch({
+    url: '/zuul/api/admin/aims/import',
+    method: 'post',
+    data: obj
+  });
+}
+
+export function add(obj) {
+  return fetch({
+    url: '/api/admin/aims',
+    method: 'post',
+    data: obj
+  });
+}
+
+export function queryList(obj) {
+  return fetch({
+    url: '/api/admin/aims/page',
+    method: 'get',
+    params: obj
+  });
+}
+
+export function getByName(obj) {
+  return fetch({
+    url: '/api/admin/aims/getbyname',
+    method: 'get',
+    params: obj
+  });
+}
+
+export function delObj(id) {
+  return fetch({
+    url: '/api/admin/aims/delete/' + id,
+    method: 'delete'
+  })
+}
+
+export function downFile(obj) {
+  return fetch({
+    url: '/api/admin/file/downloadFile',
+    method: 'get',
+    params: obj,
+    responseType: 'blob',
+    headers: {
+            'Accept': 'application/octet-stream'
+        }
+    
+  })
+}

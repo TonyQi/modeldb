@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bcc.security.admin.mapper.DaDataMapper">
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.dataparse.dataobj.DaData">
+    <id column="DATAID" jdbcType="DECIMAL" property="dataid" />
+    <result column="TASKDATAID" jdbcType="VARCHAR" property="taskdataid" />
+    <result column="TYPE" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.bcc.security.admin.dataparse.dataobj.DaData">
+    <result column="DATABODY" jdbcType="BLOB" property="databody" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DATAID, TASKDATAID, TYPE
+  </sql>
+  <sql id="Blob_Column_List">
+    DATABODY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DA_DATA
+    where DATAID = #{dataid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTaskId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DA_DATA
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DA_DATA
+    where DATAID = #{dataid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bcc.security.admin.dataparse.dataobj.DaData">
+    insert into DA_DATA (DATAID, TASKDATAID, TYPE,  DATABODY
+      )
+    values (#{dataid,jdbcType=DECIMAL}, #{taskdataid,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{databody,jdbcType=BLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaData">
+    insert into DA_DATA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dataid != null">
+        DATAID,
+      </if>
+      <if test="taskdataid != null">
+        TASKDATAID,
+      </if>
+      <if test="type != null">
+        TYPE,
+      </if>
+      <if test="databody != null">
+        DATABODY
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dataid != null">
+        #{dataid,jdbcType=DECIMAL},
+      </if>
+      <if test="taskdataid != null">
+        #{taskdataid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="databody != null">
+        #{databody,jdbcType=BLOB}
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaData">
+    update DA_DATA
+    <set>
+      <if test="taskdataid != null">
+        TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="databody != null">
+        DATABODY = #{databody,jdbcType=BLOB}
+      </if>
+    </set>
+    where DATAID = #{dataid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.bcc.security.admin.dataparse.dataobj.DaData">
+    update DA_DATA
+    set TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      DATABODY = #{databody,jdbcType=BLOB}
+    where DATAID = #{dataid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bcc.security.admin.dataparse.dataobj.DaData">
+    update DA_DATA
+    set TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+    where DATAID = #{dataid,jdbcType=VARCHAR}
+  </update>
+</mapper>

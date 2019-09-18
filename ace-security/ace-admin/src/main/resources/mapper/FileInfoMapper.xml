@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bcc.security.admin.mapper.FileinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.entity.FileInfo" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="data_type" property="dataType" jdbcType="VARCHAR" />
+    <result column="secret" property="secret" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="upload_time" property="uploadTime" jdbcType="DATE" />
+    <result column="upload_user_id" property="uploadUserId" jdbcType="VARCHAR" />
+    <result column="upload_user" property="uploadUser" jdbcType="VARCHAR" />
+    <result column="file_name" property="fileName" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap id="countMap" type="com.bcc.security.admin.vo.FileInfoCountVo" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <result column="data_type" property="dataType" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+  </resultMap>
+  <select id="getFileInfoCount" resultMap="countMap">
+  	SELECT data_type,count(*) num FROM file_info group by data_type
+  </select>
+</mapper>

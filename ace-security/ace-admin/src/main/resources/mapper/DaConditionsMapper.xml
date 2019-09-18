@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bcc.security.admin.mapper.DaConditionsMapper">
+  <resultMap id="BaseResultMap" type="com.bcc.security.admin.dataparse.dataobj.DaConditions">
+    <id column="CONDITIONID" jdbcType="VARCHAR" property="conditionid"/>
+    <result column="TASKDATAID" jdbcType="VARCHAR" property="taskdataid"/>
+	<result column="SUBTASKID" jdbcType="VARCHAR" property="subtaskid"/>
+	<result column="SYSTEMID" jdbcType="VARCHAR" property="systemid"/>
+	<result column="METEOROLOGYID" jdbcType="VARCHAR" property="meteorologyid"/>
+	<result column="MEASTIME" jdbcType="VARCHAR" property="meastime"/>
+	<result column="WEATH" jdbcType="VARCHAR" property="weath"/>
+	<result column="FLYACT" jdbcType="VARCHAR" property="flyact"/>
+	<result column="FLIGHT" jdbcType="VARCHAR" property="flight"/>
+	<result column="FREQPTS" jdbcType="VARCHAR" property="freqpts"/>
+	<result column="OPEFREQ" jdbcType="VARCHAR" property="opefreq"/>
+	<result column="BEGNOPEFREQ" jdbcType="VARCHAR" property="begnopefreq"/>
+	<result column="ENDOPEFREQ" jdbcType="VARCHAR" property="endopefreq"/>
+	<result column="STPOPEFRERQ" jdbcType="VARCHAR" property="stpopefrerq"/>
+	<result column="POLCOMB" jdbcType="VARCHAR" property="polcomb"/>
+	<result column="TGTRNG" jdbcType="VARCHAR" property="tgtrng"/>
+	<result column="EXTTGTRNG" jdbcType="VARCHAR" property="exttgtrng"/>
+	<result column="TGTALT" jdbcType="VARCHAR" property="tgtalt"/>
+	<result column="TGTVEL" jdbcType="VARCHAR" property="tgtvel"/>
+	<result column="TGTHEADANL" jdbcType="VARCHAR" property="tgtheadanl"/>
+	<result column="ANTALT" jdbcType="VARCHAR" property="antalt"/>
+	<result column="TGTPIT" jdbcType="VARCHAR" property="tgtpit"/>
+	<result column="EXTTGTPIT" jdbcType="VARCHAR" property="exttgtpit"/>
+	<result column="TGTRL" jdbcType="VARCHAR" property="tgtrl"/>
+	<result column="EXTTGTRL" jdbcType="VARCHAR" property="exttgtrl"/>
+	<result column="BISTAANL" jdbcType="VARCHAR" property="bistaanl"/>
+	<result column="BEGNTGTAZ" jdbcType="VARCHAR" property="begntgtaz"/>
+	<result column="ENDTGTAZ" jdbcType="VARCHAR" property="endtgtaz"/>
+	<result column="STEPTGTAZ" jdbcType="VARCHAR" property="steptgtaz"/>
+	<result column="TGTAZ" jdbcType="VARCHAR" property="tgtaz"/>
+	<result column="BEGNBISTAANL" jdbcType="VARCHAR" property="begnbistaanl"/>
+	<result column="ENDBISTAANL" jdbcType="VARCHAR" property="endbistaanl"/>
+	<result column="STPBISTAANL" jdbcType="VARCHAR" property="stpbistaanl"/>
+	<result column="BEGNDOWNRNG" jdbcType="VARCHAR" property="begndownrng"/>
+	<result column="ENDDOWNRNG" jdbcType="VARCHAR" property="enddownrng"/>
+	<result column="STEPDOWNRNG" jdbcType="VARCHAR" property="stepdownrng"/>
+	<result column="BEGNCROSSRNG" jdbcType="VARCHAR" property="begncrossrng"/>
+	<result column="ENDCROSSRNG" jdbcType="VARCHAR" property="endcrossrng"/>
+	<result column="STEPCROSSRNG" jdbcType="VARCHAR" property="stepcrossrng"/>
+	<result column="SIGNSAMPFREQ" jdbcType="VARCHAR" property="signsampfreq"/>
+	<result column="SAMPFREQTGTATT" jdbcType="VARCHAR" property="sampfreqtgtatt"/>
+	<result column="SAMPFREQRDRATT" jdbcType="VARCHAR" property="sampfreqrdratt"/>
+	<result column="ENGSTUS" jdbcType="VARCHAR" property="engstus"/>
+	<result column="BEGNENDMEASTIME" jdbcType="VARCHAR" property="begnendmeastime"/>
+	<result column="TXSPXS" jdbcType="VARCHAR" property="txspxs"/>
+	<result column="TXCZXS" jdbcType="VARCHAR" property="txczxs"/>
+	<result column="MEASALT" jdbcType="VARCHAR" property="measalt"/>
+	<result column="DETALT" jdbcType="VARCHAR" property="detalt"/>
+	<result column="BKGNDALT" jdbcType="VARCHAR" property="bkgndalt"/>
+	<result column="MATLALT" jdbcType="VARCHAR" property="matlalt"/>
+	<result column="DETAZ" jdbcType="VARCHAR" property="detaz"/>
+	<result column="EXTDETAZ" jdbcType="VARCHAR" property="extdetaz"/>
+	<result column="DETEL" jdbcType="VARCHAR" property="detel"/>
+	<result column="DETPOLANL" jdbcType="VARCHAR" property="detpolanl"/>
+	<result column="EXTDETEL" jdbcType="VARCHAR" property="extdetel"/>
+	<result column="EXTINCAZ" jdbcType="VARCHAR" property="extincaz"/>
+	<result column="INCAZ" jdbcType="VARCHAR" property="incaz"/>
+	<result column="INCEL" jdbcType="VARCHAR" property="incel"/>
+	<result column="INCPOLANL" jdbcType="VARCHAR" property="incpolanl"/>
+	<result column="DIRSEMISPHEREFL" jdbcType="VARCHAR" property="dirsemispherefl"/>
+	<result column="DIRCPIXSIZE" jdbcType="VARCHAR" property="dircpixsize"/>
+	<result column="AZISTART" jdbcType="VARCHAR" property="azistart"/>
+	<result column="FLGALT" jdbcType="VARCHAR" property="flgalt"/>
+	<result column="FLIGHTVEL" jdbcType="VARCHAR" property="flightvel"/>
+	<result column="AZIRES" jdbcType="VARCHAR" property="azires"/>
+	<result column="VMODE" jdbcType="VARCHAR" property="vmode"/>
+	<result column="TGTLAT" jdbcType="VARCHAR" property="tgtlat"/>
+	<result column="DESCSAMP" jdbcType="VARCHAR" property="descsamp"/>
+	<result column="PIRNGRESPIXSIZE" jdbcType="VARCHAR" property="pirngrespixsize"/>
+	<result column="rngresdistlv" jdbcType="VARCHAR" property="rngresdistlv"/>
+	<result column="RNGATC" jdbcType="VARCHAR" property="rngatc"/>
+	<result column="BLKCNT" jdbcType="VARCHAR" property="blkcnt"/>
+	<result column="SREPTFREQ" jdbcType="VARCHAR" property="sreptfreq"/>
+	<result column="TGTLONG" jdbcType="VARCHAR" property="tgtlong"/>
+	<result column="EXTTGTAZ" jdbcType="VARCHAR" property="exttgtaz"/>
+	<result column="INCANL" jdbcType="VARCHAR" property="incanl"/>
+	<result column="MULLOOKFACT" jdbcType="VARCHAR" property="mullookfact"/>
+	<result column="DATACOLSTART" jdbcType="VARCHAR" property="datacolstart"/>
+	<result column="DATACOLEND" jdbcType="VARCHAR" property="datacolend"/>
+	<result column="IMGCTL" jdbcType="VARCHAR" property="imgctl"/>
+	<result column="NOTE" jdbcType="VARCHAR" property="note"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+	TASKDATAID,CONDITIONID,SUBTASKID,SYSTEMID,METEOROLOGYID,MEASTIME,WEATH,FLYACT,
+	FLIGHT,FREQPTS,OPEFREQ,BEGNOPEFREQ,ENDOPEFREQ,STPOPEFRERQ,POLCOMB,TGTRNG,EXTTGTRNG,
+	TGTALT,TGTVEL,TGTHEADANL,ANTALT,TGTPIT,EXTTGTPIT,TGTRL,EXTTGTRL,BISTAANL,BEGNTGTAZ,
+	ENDTGTAZ,STEPTGTAZ,TGTAZ,BEGNBISTAANL,ENDBISTAANL,STPBISTAANL,BEGNDOWNRNG,ENDDOWNRNG,
+	STEPDOWNRNG,BEGNCROSSRNG,ENDCROSSRNG,STEPCROSSRNG,SIGNSAMPFREQ,SAMPFREQTGTATT,SAMPFREQRDRATT,
+	ENGSTUS,BEGNENDMEASTIME,TXSPXS,TXCZXS,MEASALT,DETALT,BKGNDALT,MATLALT,DETAZ,EXTDETAZ,DETEL,DETPOLANL,
+	EXTDETEL,EXTINCAZ,INCAZ,INCEL,INCPOLANL,DIRSEMISPHEREFL,DIRCPIXSIZE,AZISTART,FLGALT,FLIGHTVEL,AZIRES,
+	VMODE,TGTLAT,DESCSAMP,PIRNGRESPIXSIZE,RNGRESDISTLV,RNGATC,BLKCNT,SREPTFREQ,TGTLONG,EXTTGTAZ,INCANL,MULLOOKFACT,
+	DATACOLSTART,DATACOLEND,IMGCTL,NOTE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_CONDITIONS
+    where CONDITIONID = #{conditionid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByTaskId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DA_CONDITIONS
+    where TASKDATAID = #{taskdataid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DA_CONDITIONS
+    where CONDITIONID = #{conditionid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.bcc.security.admin.dataparse.dataobj.DaConditions">
+    insert into DA_CONDITIONS (TASKDATAID,CONDITIONID,SUBTASKID,SYSTEMID,METEOROLOGYID,MEASTIME,WEATH,FLYACT,
+		FLIGHT,FREQPTS,OPEFREQ,BEGNOPEFREQ,ENDOPEFREQ,STPOPEFRERQ,POLCOMB,TGTRNG,EXTTGTRNG,
+		TGTALT,TGTVEL,TGTHEADANL,ANTALT,TGTPIT,EXTTGTPIT,TGTRL,EXTTGTRL,BISTAANL,BEGNTGTAZ,
+		ENDTGTAZ,STEPTGTAZ,TGTAZ,BEGNBISTAANL,ENDBISTAANL,STPBISTAANL,BEGNDOWNRNG,ENDDOWNRNG,
+		STEPDOWNRNG,BEGNCROSSRNG,ENDCROSSRNG,STEPCROSSRNG,SIGNSAMPFREQ,SAMPFREQTGTATT,SAMPFREQRDRATT,
+		ENGSTUS,BEGNENDMEASTIME,TXSPXS,TXCZXS,MEASALT,DETALT,BKGNDALT,MATLALT,DETAZ,EXTDETAZ,DETEL,DETPOLANL,
+		EXTDETEL,EXTINCAZ,INCAZ,INCEL,INCPOLANL,DIRSEMISPHEREFL,DIRCPIXSIZE,AZISTART,FLGALT,FLIGHTVEL,AZIRES,
+		VMODE,TGTLAT,DESCSAMP,PIRNGRESPIXSIZE,RNGRESDISTLV,RNGATC,BLKCNT,SREPTFREQ,TGTLONG,EXTTGTAZ,INCANL,MULLOOKFACT,
+		DATACOLSTART,DATACOLEND,IMGCTL,NOTE
+      )
+    values (#{taskdataid,jdbcType=VARCHAR},#{conditionid,jdbcType=VARCHAR},#{subtaskid,jdbcType=VARCHAR},#{systemid,jdbcType=VARCHAR},
+			#{meteorologyid,jdbcType=VARCHAR},#{meastime,jdbcType=VARCHAR},#{weath,jdbcType=VARCHAR},#{flyact,jdbcType=VARCHAR},
+			#{flight,jdbcType=VARCHAR},#{freqpts,jdbcType=VARCHAR},#{opefreq,jdbcType=VARCHAR},#{begnopefreq,jdbcType=VARCHAR},
+			#{endopefreq,jdbcType=VARCHAR},#{stpopefrerq,jdbcType=VARCHAR},#{polcomb,jdbcType=VARCHAR},#{tgtrng,jdbcType=VARCHAR},
+			#{exttgtrng,jdbcType=VARCHAR},#{tgtalt,jdbcType=VARCHAR},#{tgtvel,jdbcType=VARCHAR},#{tgtheadanl,jdbcType=VARCHAR},
+			#{antalt,jdbcType=VARCHAR},#{tgtpit,jdbcType=VARCHAR},#{exttgtpit,jdbcType=VARCHAR},#{tgtrl,jdbcType=VARCHAR},
+			#{exttgtrl,jdbcType=VARCHAR},#{bistaanl,jdbcType=VARCHAR},#{begntgtaz,jdbcType=VARCHAR},#{endtgtaz,jdbcType=VARCHAR},
+			#{steptgtaz,jdbcType=VARCHAR},#{tgtaz,jdbcType=VARCHAR},#{begnbistaanl,jdbcType=VARCHAR},#{endbistaanl,jdbcType=VARCHAR},
+			#{stpbistaanl,jdbcType=VARCHAR},#{begndownrng,jdbcType=VARCHAR},#{enddownrng,jdbcType=VARCHAR},#{stepdownrng,jdbcType=VARCHAR},
+			#{begncrossrng,jdbcType=VARCHAR},#{endcrossrng,jdbcType=VARCHAR},#{stepcrossrng,jdbcType=VARCHAR},#{signsampfreq,jdbcType=VARCHAR},
+			#{sampfreqtgtatt,jdbcType=VARCHAR},#{sampfreqrdratt,jdbcType=VARCHAR},#{engstus,jdbcType=VARCHAR},#{begnendmeastime,jdbcType=VARCHAR},
+			#{txspxs,jdbcType=VARCHAR},#{txczxs,jdbcType=VARCHAR},#{measalt,jdbcType=VARCHAR},#{detalt,jdbcType=VARCHAR},#{bkgndalt,jdbcType=VARCHAR},
+			#{matlalt,jdbcType=VARCHAR},#{detaz,jdbcType=VARCHAR},#{extdetaz,jdbcType=VARCHAR},#{detel,jdbcType=VARCHAR},#{detpolanl,jdbcType=VARCHAR},
+			#{extdetel,jdbcType=VARCHAR},#{extincaz,jdbcType=VARCHAR},#{incaz,jdbcType=VARCHAR},#{incel,jdbcType=VARCHAR},#{incpolanl,jdbcType=VARCHAR},
+			#{dirsemispherefl,jdbcType=VARCHAR},#{dircpixsize,jdbcType=VARCHAR},#{azistart,jdbcType=VARCHAR},#{flgalt,jdbcType=VARCHAR},
+			#{flightvel,jdbcType=VARCHAR},#{azires,jdbcType=VARCHAR},#{vmode,jdbcType=VARCHAR},#{tgtlat,jdbcType=VARCHAR},#{descsamp,jdbcType=VARCHAR},
+			#{pirngrespixsize,jdbcType=VARCHAR},#{rngresdistlv,jdbcType=VARCHAR},#{rngatc,jdbcType=VARCHAR},#{blkcnt,jdbcType=VARCHAR},
+			#{sreptfreq,jdbcType=VARCHAR},#{tgtlong,jdbcType=VARCHAR},#{exttgtaz,jdbcType=VARCHAR},#{incanl,jdbcType=VARCHAR},#{mullookfact,jdbcType=VARCHAR},
+			#{datacolstart,jdbcType=VARCHAR},#{datacolend,jdbcType=VARCHAR},#{imgctl,jdbcType=VARCHAR},#{note,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaConditions">
+    insert into DA_CONDITIONS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		TASKDATAID
+		</if>
+		<if test="conditionid != null">
+		CONDITIONID
+		</if>
+		<if test="subtaskid != null">
+		SUBTASKID
+		</if>
+		<if test="systemid != null">
+		SYSTEMID
+		</if>
+		<if test="meteorologyid != null">
+		METEOROLOGYID
+		</if>
+		<if test="meastime != null">
+		MEASTIME
+		</if>
+		<if test="weath != null">
+		WEATH
+		</if>
+		<if test="flyact != null">
+		FLYACT
+		</if>
+		<if test="flight != null">
+		FLIGHT
+		</if>
+		<if test="freqpts != null">
+		FREQPTS
+		</if>
+		<if test="opefreq != null">
+		OPEFREQ
+		</if>
+		<if test="begnopefreq != null">
+		BEGNOPEFREQ
+		</if>
+		<if test="endopefreq != null">
+		ENDOPEFREQ
+		</if>
+		<if test="stpopefrerq != null">
+		STPOPEFRERQ
+		</if>
+		<if test="polcomb != null">
+		POLCOMB
+		</if>
+		<if test="tgtrng != null">
+		TGTRNG
+		</if>
+		<if test="exttgtrng != null">
+		EXTTGTRNG
+		</if>
+		<if test="tgtalt != null">
+		TGTALT
+		</if>
+		<if test="tgtvel != null">
+		TGTVEL
+		</if>
+		<if test="tgtheadanl != null">
+		TGTHEADANL
+		</if>
+		<if test="antalt != null">
+		ANTALT
+		</if>
+		<if test="tgtpit != null">
+		TGTPIT
+		</if>
+		<if test="exttgtpit != null">
+		EXTTGTPIT
+		</if>
+		<if test="tgtrl != null">
+		TGTRL
+		</if>
+		<if test="exttgtrl != null">
+		EXTTGTRL
+		</if>
+		<if test="bistaanl != null">
+		BISTAANL
+		</if>
+		<if test="begntgtaz != null">
+		BEGNTGTAZ
+		</if>
+		<if test="endtgtaz != null">
+		ENDTGTAZ
+		</if>
+		<if test="steptgtaz != null">
+		STEPTGTAZ
+		</if>
+		<if test="tgtaz != null">
+		TGTAZ
+		</if>
+		<if test="begnbistaanl != null">
+		BEGNBISTAANL
+		</if>
+		<if test="endbistaanl != null">
+		ENDBISTAANL
+		</if>
+		<if test="stpbistaanl != null">
+		STPBISTAANL
+		</if>
+		<if test="begndownrng != null">
+		BEGNDOWNRNG
+		</if>
+		<if test="enddownrng != null">
+		ENDDOWNRNG
+		</if>
+		<if test="stepdownrng != null">
+		STEPDOWNRNG
+		</if>
+		<if test="begncrossrng != null">
+		BEGNCROSSRNG
+		</if>
+		<if test="endcrossrng != null">
+		ENDCROSSRNG
+		</if>
+		<if test="stepcrossrng != null">
+		STEPCROSSRNG
+		</if>
+		<if test="signsampfreq != null">
+		SIGNSAMPFREQ
+		</if>
+		<if test="sampfreqtgtatt != null">
+		SAMPFREQTGTATT
+		</if>
+		<if test="sampfreqrdratt != null">
+		SAMPFREQRDRATT
+		</if>
+		<if test="engstus != null">
+		ENGSTUS
+		</if>
+		<if test="begnendmeastime != null">
+		BEGNENDMEASTIME
+		</if>
+		<if test="txspxs != null">
+		TXSPXS
+		</if>
+		<if test="txczxs != null">
+		TXCZXS
+		</if>
+		<if test="measalt != null">
+		MEASALT
+		</if>
+		<if test="detalt != null">
+		DETALT
+		</if>
+		<if test="bkgndalt != null">
+		BKGNDALT
+		</if>
+		<if test="matlalt != null">
+		MATLALT
+		</if>
+		<if test="detaz != null">
+		DETAZ
+		</if>
+		<if test="extdetaz != null">
+		EXTDETAZ
+		</if>
+		<if test="detel != null">
+		DETEL
+		</if>
+		<if test="detpolanl != null">
+		DETPOLANL
+		</if>
+		<if test="extdetel != null">
+		EXTDETEL
+		</if>
+		<if test="extincaz != null">
+		EXTINCAZ
+		</if>
+		<if test="incaz != null">
+		INCAZ
+		</if>
+		<if test="incel != null">
+		INCEL
+		</if>
+		<if test="incpolanl != null">
+		INCPOLANL
+		</if>
+		<if test="dirsemispherefl != null">
+		DIRSEMISPHEREFL
+		</if>
+		<if test="dircpixsize != null">
+		DIRCPIXSIZE
+		</if>
+		<if test="azistart != null">
+		AZISTART
+		</if>
+		<if test="flgalt != null">
+		FLGALT
+		</if>
+		<if test="flightvel != null">
+		FLIGHTVEL
+		</if>
+		<if test="azires != null">
+		AZIRES
+		</if>
+		<if test="vmode != null">
+		VMODE
+		</if>
+		<if test="tgtlat != null">
+		TGTLAT
+		</if>
+		<if test="descsamp != null">
+		DESCSAMP
+		</if>
+		<if test="pirngrespixsize != null">
+		PIRNGRESPIXSIZE
+		</if>
+		<if test="rngresdistlv != null">
+		RNGRESDISTLV
+		</if>
+		<if test="rngatc != null">
+		RNGATC
+		</if>
+		<if test="blkcnt != null">
+		BLKCNT
+		</if>
+		<if test="sreptfreq != null">
+		SREPTFREQ
+		</if>
+		<if test="tgtlong != null">
+		TGTLONG
+		</if>
+		<if test="exttgtaz != null">
+		EXTTGTAZ
+		</if>
+		<if test="incanl != null">
+		INCANL
+		</if>
+		<if test="mullookfact != null">
+		MULLOOKFACT
+		</if>
+		<if test="datacolstart != null">
+		DATACOLSTART
+		</if>
+		<if test="datacolend != null">
+		DATACOLEND
+		</if>
+		<if test="imgctl != null">
+		IMGCTL
+		</if>
+		<if test="note != null">
+		NOTE
+		</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taskdataid != null">
+		#{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="conditionid != null">
+		#{conditionid,jdbcType=VARCHAR},
+		</if>
+		<if test="subtaskid != null">
+		#{subtaskid,jdbcType=VARCHAR},
+		</if>
+		<if test="systemid != null">
+		#{systemid,jdbcType=VARCHAR},
+		</if>
+		<if test="meteorologyid != null">
+		#{meteorologyid,jdbcType=VARCHAR},
+		</if>
+		<if test="meastime != null">
+		#{meastime,jdbcType=VARCHAR},
+		</if>
+		<if test="weath != null">
+		#{weath,jdbcType=VARCHAR},
+		</if>
+		<if test="flyact != null">
+		#{flyact,jdbcType=VARCHAR},
+		</if>
+		<if test="flight != null">
+		#{flight,jdbcType=VARCHAR},
+		</if>
+		<if test="freqpts != null">
+		#{freqpts,jdbcType=VARCHAR},
+		</if>
+		<if test="opefreq != null">
+		#{opefreq,jdbcType=VARCHAR},
+		</if>
+		<if test="begnopefreq != null">
+		#{begnopefreq,jdbcType=VARCHAR},
+		</if>
+		<if test="endopefreq != null">
+		#{endopefreq,jdbcType=VARCHAR},
+		</if>
+		<if test="stpopefrerq != null">
+		#{stpopefrerq,jdbcType=VARCHAR},
+		</if>
+		<if test="polcomb != null">
+		#{polcomb,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtrng != null">
+		#{tgtrng,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtrng != null">
+		#{exttgtrng,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtalt != null">
+		#{tgtalt,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtvel != null">
+		#{tgtvel,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtheadanl != null">
+		#{tgtheadanl,jdbcType=VARCHAR},
+		</if>
+		<if test="antalt != null">
+		#{antalt,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtpit != null">
+		#{tgtpit,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtpit != null">
+		#{exttgtpit,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtrl != null">
+		#{tgtrl,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtrl != null">
+		#{exttgtrl,jdbcType=VARCHAR},
+		</if>
+		<if test="bistaanl != null">
+		#{bistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="begntgtaz != null">
+		#{begntgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="endtgtaz != null">
+		#{endtgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="steptgtaz != null">
+		#{steptgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtaz != null">
+		#{tgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="begnbistaanl != null">
+		#{begnbistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="endbistaanl != null">
+		#{endbistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="stpbistaanl != null">
+		#{stpbistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="begndownrng != null">
+		#{begndownrng,jdbcType=VARCHAR},
+		</if>
+		<if test="enddownrng != null">
+		#{enddownrng,jdbcType=VARCHAR},
+		</if>
+		<if test="stepdownrng != null">
+		#{stepdownrng,jdbcType=VARCHAR},
+		</if>
+		<if test="begncrossrng != null">
+		#{begncrossrng,jdbcType=VARCHAR},
+		</if>
+		<if test="endcrossrng != null">
+		#{endcrossrng,jdbcType=VARCHAR},
+		</if>
+		<if test="stepcrossrng != null">
+		#{stepcrossrng,jdbcType=VARCHAR},
+		</if>
+		<if test="signsampfreq != null">
+		#{signsampfreq,jdbcType=VARCHAR},
+		</if>
+		<if test="sampfreqtgtatt != null">
+		#{sampfreqtgtatt,jdbcType=VARCHAR},
+		</if>
+		<if test="sampfreqrdratt != null">
+		#{sampfreqrdratt,jdbcType=VARCHAR},
+		</if>
+		<if test="engstus != null">
+		#{engstus,jdbcType=VARCHAR},
+		</if>
+		<if test="begnendmeastime != null">
+		#{begnendmeastime,jdbcType=VARCHAR},
+		</if>
+		<if test="txspxs != null">
+		#{txspxs,jdbcType=VARCHAR},
+		</if>
+		<if test="txczxs != null">
+		#{txczxs,jdbcType=VARCHAR},
+		</if>
+		<if test="measalt != null">
+		#{measalt,jdbcType=VARCHAR},
+		</if>
+		<if test="detalt != null">
+		#{detalt,jdbcType=VARCHAR},
+		</if>
+		<if test="bkgndalt != null">
+		#{bkgndalt,jdbcType=VARCHAR},
+		</if>
+		<if test="matlalt != null">
+		#{matlalt,jdbcType=VARCHAR},
+		</if>
+		<if test="detaz != null">
+		#{detaz,jdbcType=VARCHAR},
+		</if>
+		<if test="extdetaz != null">
+		#{extdetaz,jdbcType=VARCHAR},
+		</if>
+		<if test="detel != null">
+		#{detel,jdbcType=VARCHAR},
+		</if>
+		<if test="detpolanl != null">
+		#{detpolanl,jdbcType=VARCHAR},
+		</if>
+		<if test="extdetel != null">
+		#{extdetel,jdbcType=VARCHAR},
+		</if>
+		<if test="extincaz != null">
+		#{extincaz,jdbcType=VARCHAR},
+		</if>
+		<if test="incaz != null">
+		#{incaz,jdbcType=VARCHAR},
+		</if>
+		<if test="incel != null">
+		#{incel,jdbcType=VARCHAR},
+		</if>
+		<if test="incpolanl != null">
+		#{incpolanl,jdbcType=VARCHAR},
+		</if>
+		<if test="dirsemispherefl != null">
+		#{dirsemispherefl,jdbcType=VARCHAR},
+		</if>
+		<if test="dircpixsize != null">
+		#{dircpixsize,jdbcType=VARCHAR},
+		</if>
+		<if test="azistart != null">
+		#{azistart,jdbcType=VARCHAR},
+		</if>
+		<if test="flgalt != null">
+		#{flgalt,jdbcType=VARCHAR},
+		</if>
+		<if test="flightvel != null">
+		#{flightvel,jdbcType=VARCHAR},
+		</if>
+		<if test="azires != null">
+		#{azires,jdbcType=VARCHAR},
+		</if>
+		<if test="vmode != null">
+		#{vmode,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtlat != null">
+		#{tgtlat,jdbcType=VARCHAR},
+		</if>
+		<if test="descsamp != null">
+		#{descsamp,jdbcType=VARCHAR},
+		</if>
+		<if test="pirngrespixsize != null">
+		#{pirngrespixsize,jdbcType=VARCHAR},
+		</if>
+		<if test="rngresdistlv != null">
+		#{rngresdistlv,jdbcType=VARCHAR},
+		</if>
+		<if test="rngatc != null">
+		#{rngatc,jdbcType=VARCHAR},
+		</if>
+		<if test="blkcnt != null">
+		#{blkcnt,jdbcType=VARCHAR},
+		</if>
+		<if test="sreptfreq != null">
+		#{sreptfreq,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtlong != null">
+		#{tgtlong,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtaz != null">
+		#{exttgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="incanl != null">
+		#{incanl,jdbcType=VARCHAR},
+		</if>
+		<if test="mullookfact != null">
+		#{mullookfact,jdbcType=VARCHAR},
+		</if>
+		<if test="datacolstart != null">
+		#{datacolstart,jdbcType=VARCHAR},
+		</if>
+		<if test="datacolend != null">
+		#{datacolend,jdbcType=VARCHAR},
+		</if>
+		<if test="imgctl != null">
+		#{imgctl,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		#{note,jdbcType=VARCHAR}
+		</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bcc.security.admin.dataparse.dataobj.DaConditions">
+    update DA_CONDITIONS
+    <set>
+      <if test="taskdataid != null">
+		TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+		</if>
+		<if test="conditionid != null">
+		CONDITIONID = #{conditionid,jdbcType=VARCHAR},
+		</if>
+		<if test="subtaskid != null">
+		SUBTASKID = #{subtaskid,jdbcType=VARCHAR},
+		</if>
+		<if test="systemid != null">
+		SYSTEMID = #{systemid,jdbcType=VARCHAR},
+		</if>
+		<if test="meteorologyid != null">
+		METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR},
+		</if>
+		<if test="meastime != null">
+		MEASTIME = #{meastime,jdbcType=VARCHAR},
+		</if>
+		<if test="weath != null">
+		WEATH = #{weath,jdbcType=VARCHAR},
+		</if>
+		<if test="flyact != null">
+		FLYACT = #{flyact,jdbcType=VARCHAR},
+		</if>
+		<if test="flight != null">
+		FLIGHT = #{flight,jdbcType=VARCHAR},
+		</if>
+		<if test="freqpts != null">
+		FREQPTS = #{freqpts,jdbcType=VARCHAR},
+		</if>
+		<if test="opefreq != null">
+		OPEFREQ = #{opefreq,jdbcType=VARCHAR},
+		</if>
+		<if test="begnopefreq != null">
+		BEGNOPEFREQ = #{begnopefreq,jdbcType=VARCHAR},
+		</if>
+		<if test="endopefreq != null">
+		ENDOPEFREQ = #{endopefreq,jdbcType=VARCHAR},
+		</if>
+		<if test="stpopefrerq != null">
+		STPOPEFRERQ = #{stpopefrerq,jdbcType=VARCHAR},
+		</if>
+		<if test="polcomb != null">
+		POLCOMB = #{polcomb,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtrng != null">
+		TGTRNG = #{tgtrng,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtrng != null">
+		EXTTGTRNG = #{exttgtrng,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtalt != null">
+		TGTALT = #{tgtalt,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtvel != null">
+		TGTVEL = #{tgtvel,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtheadanl != null">
+		TGTHEADANL = #{tgtheadanl,jdbcType=VARCHAR},
+		</if>
+		<if test="antalt != null">
+		ANTALT = #{antalt,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtpit != null">
+		TGTPIT = #{tgtpit,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtpit != null">
+		EXTTGTPIT = #{exttgtpit,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtrl != null">
+		TGTRL = #{tgtrl,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtrl != null">
+		EXTTGTRL = #{exttgtrl,jdbcType=VARCHAR},
+		</if>
+		<if test="bistaanl != null">
+		BISTAANL = #{bistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="begntgtaz != null">
+		BEGNTGTAZ = #{begntgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="endtgtaz != null">
+		ENDTGTAZ = #{endtgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="steptgtaz != null">
+		STEPTGTAZ = #{steptgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtaz != null">
+		TGTAZ = #{tgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="begnbistaanl != null">
+		BEGNBISTAANL = #{begnbistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="endbistaanl != null">
+		ENDBISTAANL = #{endbistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="stpbistaanl != null">
+		STPBISTAANL = #{stpbistaanl,jdbcType=VARCHAR},
+		</if>
+		<if test="begndownrng != null">
+		BEGNDOWNRNG = #{begndownrng,jdbcType=VARCHAR},
+		</if>
+		<if test="enddownrng != null">
+		ENDDOWNRNG = #{enddownrng,jdbcType=VARCHAR},
+		</if>
+		<if test="stepdownrng != null">
+		STEPDOWNRNG = #{stepdownrng,jdbcType=VARCHAR},
+		</if>
+		<if test="begncrossrng != null">
+		BEGNCROSSRNG = #{begncrossrng,jdbcType=VARCHAR},
+		</if>
+		<if test="endcrossrng != null">
+		ENDCROSSRNG = #{endcrossrng,jdbcType=VARCHAR},
+		</if>
+		<if test="stepcrossrng != null">
+		STEPCROSSRNG = #{stepcrossrng,jdbcType=VARCHAR},
+		</if>
+		<if test="signsampfreq != null">
+		SIGNSAMPFREQ = #{signsampfreq,jdbcType=VARCHAR},
+		</if>
+		<if test="sampfreqtgtatt != null">
+		SAMPFREQTGTATT = #{sampfreqtgtatt,jdbcType=VARCHAR},
+		</if>
+		<if test="sampfreqrdratt != null">
+		SAMPFREQRDRATT = #{sampfreqrdratt,jdbcType=VARCHAR},
+		</if>
+		<if test="engstus != null">
+		ENGSTUS = #{engstus,jdbcType=VARCHAR},
+		</if>
+		<if test="begnendmeastime != null">
+		BEGNENDMEASTIME = #{begnendmeastime,jdbcType=VARCHAR},
+		</if>
+		<if test="txspxs != null">
+		TXSPXS = #{txspxs,jdbcType=VARCHAR},
+		</if>
+		<if test="txczxs != null">
+		TXCZXS = #{txczxs,jdbcType=VARCHAR},
+		</if>
+		<if test="measalt != null">
+		MEASALT = #{measalt,jdbcType=VARCHAR},
+		</if>
+		<if test="detalt != null">
+		DETALT = #{detalt,jdbcType=VARCHAR},
+		</if>
+		<if test="bkgndalt != null">
+		BKGNDALT = #{bkgndalt,jdbcType=VARCHAR},
+		</if>
+		<if test="matlalt != null">
+		MATLALT = #{matlalt,jdbcType=VARCHAR},
+		</if>
+		<if test="detaz != null">
+		DETAZ = #{detaz,jdbcType=VARCHAR},
+		</if>
+		<if test="extdetaz != null">
+		EXTDETAZ = #{extdetaz,jdbcType=VARCHAR},
+		</if>
+		<if test="detel != null">
+		DETEL = #{detel,jdbcType=VARCHAR},
+		</if>
+		<if test="detpolanl != null">
+		DETPOLANL = #{detpolanl,jdbcType=VARCHAR},
+		</if>
+		<if test="extdetel != null">
+		EXTDETEL = #{extdetel,jdbcType=VARCHAR},
+		</if>
+		<if test="extincaz != null">
+		EXTINCAZ = #{extincaz,jdbcType=VARCHAR},
+		</if>
+		<if test="incaz != null">
+		INCAZ = #{incaz,jdbcType=VARCHAR},
+		</if>
+		<if test="incel != null">
+		INCEL = #{incel,jdbcType=VARCHAR},
+		</if>
+		<if test="incpolanl != null">
+		INCPOLANL = #{incpolanl,jdbcType=VARCHAR},
+		</if>
+		<if test="dirsemispherefl != null">
+		DIRSEMISPHEREFL = #{dirsemispherefl,jdbcType=VARCHAR},
+		</if>
+		<if test="dircpixsize != null">
+		DIRCPIXSIZE = #{dircpixsize,jdbcType=VARCHAR},
+		</if>
+		<if test="azistart != null">
+		AZISTART = #{azistart,jdbcType=VARCHAR},
+		</if>
+		<if test="flgalt != null">
+		FLGALT = #{flgalt,jdbcType=VARCHAR},
+		</if>
+		<if test="flightvel != null">
+		FLIGHTVEL = #{flightvel,jdbcType=VARCHAR},
+		</if>
+		<if test="azires != null">
+		AZIRES = #{azires,jdbcType=VARCHAR},
+		</if>
+		<if test="vmode != null">
+		VMODE = #{vmode,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtlat != null">
+		TGTLAT = #{tgtlat,jdbcType=VARCHAR},
+		</if>
+		<if test="descsamp != null">
+		DESCSAMP = #{descsamp,jdbcType=VARCHAR},
+		</if>
+		<if test="pirngrespixsize != null">
+		PIRNGRESPIXSIZE = #{pirngrespixsize,jdbcType=VARCHAR},
+		</if>
+		<if test="rngresdistlv != null">
+		RNGRESDISTLV = #{rngresdistlv,jdbcType=VARCHAR},
+		</if>
+		<if test="rngatc != null">
+		RNGATC = #{rngatc,jdbcType=VARCHAR},
+		</if>
+		<if test="blkcnt != null">
+		BLKCNT = #{blkcnt,jdbcType=VARCHAR},
+		</if>
+		<if test="sreptfreq != null">
+		SREPTFREQ = #{sreptfreq,jdbcType=VARCHAR},
+		</if>
+		<if test="tgtlong != null">
+		TGTLONG = #{tgtlong,jdbcType=VARCHAR},
+		</if>
+		<if test="exttgtaz != null">
+		EXTTGTAZ = #{exttgtaz,jdbcType=VARCHAR},
+		</if>
+		<if test="incanl != null">
+		INCANL = #{incanl,jdbcType=VARCHAR},
+		</if>
+		<if test="mullookfact != null">
+		MULLOOKFACT = #{mullookfact,jdbcType=VARCHAR},
+		</if>
+		<if test="datacolstart != null">
+		DATACOLSTART = #{datacolstart,jdbcType=VARCHAR},
+		</if>
+		<if test="datacolend != null">
+		DATACOLEND = #{datacolend,jdbcType=VARCHAR},
+		</if>
+		<if test="imgctl != null">
+		IMGCTL = #{imgctl,jdbcType=VARCHAR},
+		</if>
+		<if test="note != null">
+		NOTE = #{note,jdbcType=VARCHAR}
+		</if>
+    </set>
+    where CONDITIONID = #{conditionid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bcc.security.admin.dataparse.dataobj.DaConditions">
+    update DA_CONDITIONS
+    set 
+    TASKDATAID = #{taskdataid,jdbcType=VARCHAR},
+	CONDITIONID = #{conditionid,jdbcType=VARCHAR},
+	SUBTASKID = #{subtaskid,jdbcType=VARCHAR},
+	SYSTEMID = #{systemid,jdbcType=VARCHAR},
+	METEOROLOGYID = #{meteorologyid,jdbcType=VARCHAR},
+	MEASTIME = #{meastime,jdbcType=VARCHAR},
+	WEATH = #{weath,jdbcType=VARCHAR},
+	FLYACT = #{flyact,jdbcType=VARCHAR},
+	FLIGHT = #{flight,jdbcType=VARCHAR},
+	FREQPTS = #{freqpts,jdbcType=VARCHAR},
+	OPEFREQ = #{opefreq,jdbcType=VARCHAR},
+	BEGNOPEFREQ = #{begnopefreq,jdbcType=VARCHAR},
+	ENDOPEFREQ = #{endopefreq,jdbcType=VARCHAR},
+	STPOPEFRERQ = #{stpopefrerq,jdbcType=VARCHAR},
+	POLCOMB = #{polcomb,jdbcType=VARCHAR},
+	TGTRNG = #{tgtrng,jdbcType=VARCHAR},
+	EXTTGTRNG = #{exttgtrng,jdbcType=VARCHAR},
+	TGTALT = #{tgtalt,jdbcType=VARCHAR},
+	TGTVEL = #{tgtvel,jdbcType=VARCHAR},
+	TGTHEADANL = #{tgtheadanl,jdbcType=VARCHAR},
+	ANTALT = #{antalt,jdbcType=VARCHAR},
+	TGTPIT = #{tgtpit,jdbcType=VARCHAR},
+	EXTTGTPIT = #{exttgtpit,jdbcType=VARCHAR},
+	TGTRL = #{tgtrl,jdbcType=VARCHAR},
+	EXTTGTRL = #{exttgtrl,jdbcType=VARCHAR},
+	BISTAANL = #{bistaanl,jdbcType=VARCHAR},
+	BEGNTGTAZ = #{begntgtaz,jdbcType=VARCHAR},
+	ENDTGTAZ = #{endtgtaz,jdbcType=VARCHAR},
+	STEPTGTAZ = #{steptgtaz,jdbcType=VARCHAR},
+	TGTAZ = #{tgtaz,jdbcType=VARCHAR},
+	BEGNBISTAANL = #{begnbistaanl,jdbcType=VARCHAR},
+	ENDBISTAANL = #{endbistaanl,jdbcType=VARCHAR},
+	STPBISTAANL = #{stpbistaanl,jdbcType=VARCHAR},
+	BEGNDOWNRNG = #{begndownrng,jdbcType=VARCHAR},
+	ENDDOWNRNG = #{enddownrng,jdbcType=VARCHAR},
+	STEPDOWNRNG = #{stepdownrng,jdbcType=VARCHAR},
+	BEGNCROSSRNG = #{begncrossrng,jdbcType=VARCHAR},
+	ENDCROSSRNG = #{endcrossrng,jdbcType=VARCHAR},
+	STEPCROSSRNG = #{stepcrossrng,jdbcType=VARCHAR},
+	SIGNSAMPFREQ = #{signsampfreq,jdbcType=VARCHAR},
+	SAMPFREQTGTATT = #{sampfreqtgtatt,jdbcType=VARCHAR},
+	SAMPFREQRDRATT = #{sampfreqrdratt,jdbcType=VARCHAR},
+	ENGSTUS = #{engstus,jdbcType=VARCHAR},
+	BEGNENDMEASTIME = #{begnendmeastime,jdbcType=VARCHAR},
+	TXSPXS = #{txspxs,jdbcType=VARCHAR},
+	TXCZXS = #{txczxs,jdbcType=VARCHAR},
+	MEASALT = #{measalt,jdbcType=VARCHAR},
+	DETALT = #{detalt,jdbcType=VARCHAR},
+	BKGNDALT = #{bkgndalt,jdbcType=VARCHAR},
+	MATLALT = #{matlalt,jdbcType=VARCHAR},
+	DETAZ = #{detaz,jdbcType=VARCHAR},
+	EXTDETAZ = #{extdetaz,jdbcType=VARCHAR},
+	DETEL = #{detel,jdbcType=VARCHAR},
+	DETPOLANL = #{detpolanl,jdbcType=VARCHAR},
+	EXTDETEL = #{extdetel,jdbcType=VARCHAR},
+	EXTINCAZ = #{extincaz,jdbcType=VARCHAR},
+	INCAZ = #{incaz,jdbcType=VARCHAR},
+	INCEL = #{incel,jdbcType=VARCHAR},
+	INCPOLANL = #{incpolanl,jdbcType=VARCHAR},
+	DIRSEMISPHEREFL = #{dirsemispherefl,jdbcType=VARCHAR},
+	DIRCPIXSIZE = #{dircpixsize,jdbcType=VARCHAR},
+	AZISTART = #{azistart,jdbcType=VARCHAR},
+	FLGALT = #{flgalt,jdbcType=VARCHAR},
+	FLIGHTVEL = #{flightvel,jdbcType=VARCHAR},
+	AZIRES = #{azires,jdbcType=VARCHAR},
+	VMODE = #{vmode,jdbcType=VARCHAR},
+	TGTLAT = #{tgtlat,jdbcType=VARCHAR},
+	DESCSAMP = #{descsamp,jdbcType=VARCHAR},
+	PIRNGRESPIXSIZE = #{pirngrespixsize,jdbcType=VARCHAR},
+	RNGRESDISTLV = #{rngresdistlv,jdbcType=VARCHAR},
+	RNGATC = #{rngatc,jdbcType=VARCHAR},
+	BLKCNT = #{blkcnt,jdbcType=VARCHAR},
+	SREPTFREQ = #{sreptfreq,jdbcType=VARCHAR},
+	TGTLONG = #{tgtlong,jdbcType=VARCHAR},
+	EXTTGTAZ = #{exttgtaz,jdbcType=VARCHAR},
+	INCANL = #{incanl,jdbcType=VARCHAR},
+	MULLOOKFACT = #{mullookfact,jdbcType=VARCHAR},
+	DATACOLSTART = #{datacolstart,jdbcType=VARCHAR},
+	DATACOLEND = #{datacolend,jdbcType=VARCHAR},
+	IMGCTL = #{imgctl,jdbcType=VARCHAR},
+	NOTE = #{note,jdbcType=VARCHAR}
+    where CONDITIONID = #{conditionid,jdbcType=VARCHAR}
+  </update>
+</mapper>
