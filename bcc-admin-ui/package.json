@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "and": "0.0.3",
-    "axios": "0.16.2",
+    "axios": "0.21.1",
     "codemirror": "5.26.0",
     "downloadjs": "^1.4.7",
     "dropzone": "5.1.0",
